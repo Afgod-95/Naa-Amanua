@@ -1,42 +1,120 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+
+}
+
+body {
+  overflow-x: hidden;
+}
+
+p{
+  font-size: 15px;
+  text-transform: none;
+  color: #fff;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+span{
+  text-transform: uppercase;
+}
+
+.info {
+  color: #000;
+  transition: all 0.5s ease;
+}
+
+.info:hover {
+  color: #5F6364;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+
+.button {
+  background: linear-gradient(45deg, #FFD700, #FFAA00); 
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#home {
+  background-image: url('./assets/PNG/home_bg.png');
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  background-repeat: no-repeat;
+  
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#about {
+  background-image: url('./assets/PNG/home_bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#news{
+  background-image: url('./assets/PNG/News_bg.png');
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
 }
 
-.card {
-  padding: 2em;
+h2{
+  font-size: 15px;
 }
 
-.read-the-docs {
-  color: #888;
+.icons {
+  color: #000;
+}
+
+
+
+
+
+
+/* ===================CAROUSEL;==============================================*/
+.album-card {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+
+.album-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.album-title {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  font-weight: bold;
+  transition: bottom 0.3s ease;
+}
+
+.album-card:hover .album-title {
+  bottom: 0;
 }
