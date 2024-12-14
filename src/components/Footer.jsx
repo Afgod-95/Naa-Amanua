@@ -8,6 +8,8 @@ import { IoLogoYoutube } from "react-icons/io";
 import Logo from "../assets/PNG/logo.png";
 import { Typography } from '@mui/material'; // Import Typography from MUI
 
+
+
 const variants = {
     section3: {
         hidden: { opacity: 0, y: 50 },
@@ -37,70 +39,59 @@ const Footer = () => {
 
     return (
         <>
-            <motion.div
-                id="#portfolio"
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignContent: 'center',
-                    gap: '2rem',
-                    marginTop: "2rem",
-                    margin: "5% auto",
-                    width: isMobile ? "90%" : '80%',
-                    paddingBottom: "3rem",
-                }}
-                variants={variants.section3}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false, amount: 0.5 }}
-            >
-                <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: "center",
-                    gap: '1rem',
-                    width: '100%'
-                }}>
-                    {/* Logo with animation */}
-                    <motion.div variants={variants.logo}>
-                        <img src={Logo} alt="Logo"
-                            style={{
-                                width: "300px",
-                                height: "200px",
-                            }}
-                        />
-                    </motion.div>
 
-                    {/* Links section with animation */}
-                    <motion.div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignContent: 'center',
-                            gap: '2.5rem',
-                            width: '100%',
-                        }}
-                        variants={variants.links}
-                    >
-                        <div style={{
-                            display: 'flex',
-                            justifyContent: "center",
-                            alignContent: "center",
-                            gap: '1rem',
-                            width: '100%',
-                            marginTop: '2rem',
-                        }}>
-                            <Link to="">
-                                <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Terms of Service</Typography>
+
+
+            {isMobile ? (
+
+                <div
+                    style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "-5rem"}}
+                >
+                    <div style={{
+                        textAlign: "center",
+                    }}>
+                        <Link to="">
+                            <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Terms of Service</Typography>
+                        </Link>
+                        <Link to="">
+                            <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Privacy Policy</Typography>
+                        </Link>
+                        <Link to="">
+                            <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Contact</Typography>
+                        </Link>
+                    </div>
+
+
+                    <div style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}>
+                        {/* Logo with animation */}
+                        <motion.div variants={variants.logo}>
+                            <img src={Logo} alt="Logo"
+                                style={{
+                                    width: "250px",
+                                    height: "180px",
+                                }}
+                            />
+                        </motion.div>
+                        {/* Social icons with animation */}
+                        <motion.div
+                            style={{ display: "flex", gap: ".5rem", alignItems: "center" }}
+                            variants={variants.socialIcons}
+                        >
+                            <Link to="https://www.instagram.com/radicalherdproductions/?hl=en" target='blank' className='info'>
+                                <FaInstagram size={isMobile ? 24 : 30} />
                             </Link>
-                            <Link to="">
-                                <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Privacy Policy</Typography>
+                            <Link className='info'>
+                                <FaSquareFacebook size={isMobile ? 24 : 30} />
                             </Link>
-                            <Link to="">
-                                <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Contact</Typography>
+                            <Link className='info'>
+                                <IoLogoYoutube size={isMobile ? 24 : 35} style={{ fontSize: "30px" }} />
                             </Link>
-                        </div>
+                        </motion.div>
 
                         {/* Copyright section with animation */}
                         <motion.div variants={variants.copyright}>
@@ -108,25 +99,101 @@ const Footer = () => {
                                 © 2025 Naa Amanua. All rights reserved.
                             </Typography>
                         </motion.div>
+                    </div>
+
+
+                </div>
+
+            ) : (
+
+                <motion.div
+
+                    style={{
+                        marginTop: "2rem",
+                        margin: "5% auto",
+                        width: isMobile ? "90%" : '80%',
+                    }}
+                    variants={variants.section3}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.5 }}
+                >
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: "center",
+                        gap: '1rem',
+                        width: '100%'
+                    }}>
+                        {/* Logo with animation */}
+                        <motion.div variants={variants.logo}>
+                            <img src={Logo} alt="Logo"
+                                style={{
+                                    width: "300px",
+                                    height: "200px",
+                                }}
+                            />
+                        </motion.div>
+
+                        {/* Links section with animation */}
+                        <motion.div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                alignContent: 'center',
+                                gap: '2.5rem',
+                                width: '100%',
+                            }}
+                            variants={variants.links}
+                        >
+                            <div style={{
+                                display: 'flex',
+                                justifyContent: "center",
+                                alignContent: "center",
+                                gap: '1rem',
+                                width: '100%',
+                                marginTop: '2rem',
+                            }}>
+                                <Link to="">
+                                    <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Terms of Service</Typography>
+                                </Link>
+                                <Link to="">
+                                    <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Privacy Policy</Typography>
+                                </Link>
+                                <Link to="">
+                                    <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Contact</Typography>
+                                </Link>
+                            </div>
+
+                            {/* Copyright section with animation */}
+                            <motion.div variants={variants.copyright}>
+                                <Typography variant="body2" style={{ color: "#000", textAlign: "center", fontSize: isMobile ? "14px" : "15px" }}>
+                                    © 2025 Naa Amanua. All rights reserved.
+                                </Typography>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Social icons with animation */}
+                        <motion.div
+                            style={{ display: "flex", gap: ".5rem", alignItems: "center" }}
+                            variants={variants.socialIcons}
+                        >
+                            <Link to="https://www.instagram.com/radicalherdproductions/?hl=en" target='blank' className='info'>
+                                <FaInstagram size={isMobile ? 24 : 30} />
+                            </Link>
+                            <Link className='info'>
+                                <FaSquareFacebook size={isMobile ? 24 : 30} />
+                            </Link>
+                            <Link className='info'>
+                                <IoLogoYoutube size={isMobile ? 24 : 35} style={{ fontSize: "30px" }} />
+                            </Link>
+                        </motion.div>
+                    </div>
                     </motion.div>
 
-                    {/* Social icons with animation */}
-                    <motion.div
-                        style={{ display: "flex", gap: ".5rem", alignItems: "center" }}
-                        variants={variants.socialIcons}
-                    >
-                        <Link to="https://www.instagram.com/radicalherdproductions/?hl=en" target='blank' className='info'>
-                            <FaInstagram size={isMobile ? 24 : 30} />
-                        </Link>
-                        <Link className='info'>
-                            <FaSquareFacebook size={isMobile ? 24 : 30} />
-                        </Link>
-                        <Link className='info'>
-                            <IoLogoYoutube size={isMobile ? 24 : 35} style={{ fontSize: "30px" }} />
-                        </Link>
-                    </motion.div>
-                </div>
-            </motion.div>
+                )}
+              
         </>
     );
 }

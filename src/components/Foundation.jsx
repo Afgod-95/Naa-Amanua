@@ -2,8 +2,12 @@ import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import GradientButton from './GradientButton';
 import { motion } from 'framer-motion'; // Import motion for animations
+import { useMediaQuery } from 'react-responsive';
 
 const Foundation = () => {
+
+    //mobile media query
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     return (
         <div
             id="foundation"
@@ -13,8 +17,6 @@ const Foundation = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: '100%',
-                backgroundColor: '#F5F5F5',
-                padding: '3rem 1.5rem',
             }}
         >
             {/* Animate Mission Statement */}
@@ -28,6 +30,7 @@ const Foundation = () => {
                     component="h1"
                     style={{
                         marginBottom: '1.5rem',
+                        paddingTop: '1.5rem',
                         color: '#333',
                         textAlign: 'center',
                         fontWeight: 'bold',
@@ -44,9 +47,10 @@ const Foundation = () => {
                 viewport={{ once: false, amount: 0.5 }}
                 style={{
                     display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
+                    gap: isMobile ? "" : "3rem",
+                    justifyContent: "center",
+                    alignItems: 'flex-start',
+                    flexDirection: isMobile ? "column" : 'row',
                     width: '80%',
                     marginBottom: '3rem',
                 }}
@@ -59,7 +63,7 @@ const Foundation = () => {
                 >
                     <Box
                         component="img"
-                        src="https://via.placeholder.com/600x400" // Replace with Naa Amanua's photo URL
+                        src="https://via.placeholder.com/600x400" 
                         alt="Naa Amanua"
                         style={{
                             width: '100%',
@@ -92,7 +96,7 @@ const Foundation = () => {
                         Our mission is to preserve Naa Amanua's music heritage for future generations and educate and train young girls and boys to develop music playing and singing skills.
                     </Typography>
                     {/* Animate Donate Button */}
-                    <GradientButton text="Donate" />
+                    <GradientButton text="Donate Today" width= {"250px"} />
                 </motion.div>
             </motion.div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { navCol } from '../constant/Colors';
 import { useMediaQuery } from 'react-responsive';
 import { motion } from 'framer-motion';
@@ -9,11 +9,11 @@ import { FaInstagram } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { IoLogoYoutube } from "react-icons/io";
 import Button from '../components/GradientButton';
-import { Typography } from '@mui/material'; // Import Typography
+import { Typography } from '@mui/material';
 
 const NavBar = ({ children }) => {
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
-    const isMobile = useMediaQuery({ query: '(max-width: 768px)' }); // All mobile devices
     const [activeLink, setActiveLink] = useState('home'); // Track active link
 
     const linkToId = [
@@ -21,30 +21,31 @@ const NavBar = ({ children }) => {
         { label: 'About', id: 'about' },
         { label: 'News', id: 'news' },
         { label: 'Music', id: 'music' },
+        { label: 'Videos', id: 'videos' },
         { label: 'Foundation', id: 'foundation' },
     ];
 
-   // Add shadow to navbar and change position based on reverse scrollY
-window.addEventListener('scroll', () => {
-    // When scrollY is greater than 100, show box shadow and fix position
-    if (window.scrollY > 100) {
-        document.querySelector('nav').style.boxShadow = '0px 2px 10px rgba(0,0,0,0.2)';
-        document.querySelector('nav').style.position = 'fixed';
-    } else {
-        // When scrollY is less than 100, remove box shadow and reset position
-        document.querySelector('nav').style.boxShadow = 'none';
-        document.querySelector('nav').style.position = 'relative';
-    }
-});
+    // Add shadow to navbar and change position based on reverse scrollY
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                document.querySelector('nav').style.boxShadow = '0px 2px 10px rgba(0,0,0,0.2)';
+                document.querySelector('nav').style.position = 'fixed';
+            } else {
+                document.querySelector('nav').style.boxShadow = 'none';
+                document.querySelector('nav').style.position = 'relative';
+            }
+        };
 
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
+    // Scroll to section
     const scrollToSection = (id) => {
-        setActiveLink(id); // Set active link
-        const element = document.getElementById(id);
-        element.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const scrollToLetter = (id) => {
+        setActiveLink(id);
         const element = document.getElementById(id);
         element.scrollIntoView({ behavior: 'smooth' });
     };
@@ -56,6 +57,34 @@ window.addEventListener('scroll', () => {
         setIsToggled(!isToggled);
     };
 
+    // Set active link based on section in view
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setActiveLink(entry.target.id);
+                    }
+                });
+            },
+            {
+                rootMargin: '0px 0px -50% 0px', // Trigger when the section is halfway in view
+            }
+        );
+
+        linkToId.forEach(link => {
+            const section = document.getElementById(link.id);
+            if (section) observer.observe(section);
+        });
+
+        return () => {
+            linkToId.forEach(link => {
+                const section = document.getElementById(link.id);
+                if (section) observer.unobserve(section);
+            });
+        };
+    }, [linkToId]);
+
     return (
         <div>
             <nav
@@ -65,37 +94,31 @@ window.addEventListener('scroll', () => {
                     top: 0,
                     left: 0,
                     zIndex: 100,
-                    boxSizing: 'border-box',
                     width: "100%",
-                    height: isMobile ? 60 : 100
+                    height: isMobile ? 50 : 100
                 }}
             >
                 <div style={{
                     display: 'flex',
                     justifyContent: 'space-between',
+                    alignItems: 'center',
                     justifyItems: 'center',
                     width: isMobile ? "90%" : "80%",
                     height: isMobile ? 60 : 100,
-                    margin: 'auto',
+                    margin: "0% auto",
                 }}>
-
-                    {/* ================LOGO=========================== */}
-                    <div style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                    }}>
+                    {/* LOGO */}
+                    <div>
                         <img src={Logo} alt="Radical Herd Logo"
                             style={{
-                                width: isMobile ? 50 : 250,
-                                height: isMobile ? 50 : 195,
+                                width: isMobile ? 80 : 250,
+                                height: isMobile ? 80 : 195,
                                 cursor: 'pointer'
                             }}
                         />
                     </div>
 
-                    {/* ================NAV LINKS==================== */}
-                    {/* Mobile Menu */}
+                    {/* NAV LINKS */}
                     {isMobile ? (
                         <div
                             onClick={toggleDrawer}
@@ -112,7 +135,7 @@ window.addEventListener('scroll', () => {
                                 style={{
                                     width: "30px",
                                     height: "3px",
-                                    background: "#fff",
+                                    background: "#000",
                                     borderRadius: "2px",
                                     originX: "center",
                                     originY: "center",
@@ -127,7 +150,7 @@ window.addEventListener('scroll', () => {
                                 style={{
                                     width: "30px",
                                     height: "3px",
-                                    background: "#fff",
+                                    background: "#000",
                                     borderRadius: "2px",
                                     originX: "center",
                                     originY: "center",
@@ -159,43 +182,46 @@ window.addEventListener('scroll', () => {
                                         onClick={() => scrollToSection(link.id)}
                                         style={{
                                             cursor: 'pointer',
-                                            color: activeLink === link.id ? '#FFD700' : '#000',
+                                            color: activeLink === link.id ? '#808080' : '#000', // Set grey for active link
                                             fontWeight: activeLink === link.id ? 'bold' : 'normal',
                                         }}
                                     >
-                                        <Typography sx = {{color: "#000"}}variant="body1">{link.label}</Typography>
+                                        <Typography sx={{ color: activeLink === link.id ? '#808080' : '#000' }} variant="body1">
+                                            {link.label}
+                                        </Typography>
                                     </div>
                                 ))}
+
                             </div>
 
-                            {/* =====SOCIAL LINKS============== */}
+                            {/* SOCIAL LINKS */}
                             <div style={{ display: "flex", gap: ".5rem", alignItems: "center" }}>
-                                <Link to="" target='blank' className='icons'>
+                                <Link to="" target="blank" className="icons">
                                     <FaInstagram size={isMobile ? 24 : 30} />
                                 </Link>
-                                <Link className='icons' >
+                                <Link className="icons">
                                     <FaSquareFacebook size={isMobile ? 24 : 30} />
                                 </Link>
-                                <Link className='icons'>
+                                <Link className="icons">
                                     <IoLogoYoutube size={isMobile ? 24 : 35} style={{ fontSize: "30px" }} />
                                 </Link>
                             </div>
 
                             <div>
-                                <Button text={"News Letter"} onClick={() => scrollToLetter("news-letter-signup")} />
+                                <Button text={"News Letter"} onClick={() => scrollToSection("news-letter-signup")} />
                             </div>
                         </div>
                     )}
                 </div>
 
                 {isMobile && (
-                    <MobileNav open={isToggled} setOpen={setIsToggled} /> // Pass the correct props
+                    <MobileNav open={isToggled} setOpen={setIsToggled} />
                 )}
             </nav>
 
             <div>{children}</div>
         </div>
     );
-}
+};
 
 export default NavBar;
