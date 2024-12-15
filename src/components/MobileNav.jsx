@@ -56,10 +56,12 @@ export default function MobileNav({ open, setOpen }) {
 
 
     const isSmallMob = useMediaQuery({ query: '(max-width: 568px)' }); // smaller mobile devices
+    const isTablet = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1024px)' });
 
     const DrawerList = (
         <Box
             sx={{
+                width: "100%",
                 height: '100%',
                 backgroundColor: navCol,
                 color: '#000',
@@ -138,7 +140,7 @@ export default function MobileNav({ open, setOpen }) {
             onClose={toggleDrawer(false)}
             PaperProps={{
                 sx: {
-                    width: isSmallMob ? "65%" : "55%"
+                    width: isSmallMob ? "65%" : isTablet ? "20%" : "55%"
                 },
             }}
         >

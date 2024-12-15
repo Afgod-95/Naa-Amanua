@@ -12,7 +12,7 @@ const OutlinedButton = ({ onClick, text, width = '150px', height = '50px' }) => 
         color: 'rgb(143, 143, 143)', 
         fontWeight: 'bold',
         textTransform: 'uppercase',
-        borderRadius: '8px',
+        borderRadius: '5px',
         border: '2px solid rgb(143, 143, 143)', 
         boxShadow: 'none', 
         '&:hover': {

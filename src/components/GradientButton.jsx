@@ -8,14 +8,15 @@ const GradientButton = ({ onClick, text, width = '150px', height = '50px' }) => 
       sx={{
         width: width,
         height: height,
-        background: 'linear-gradient(90deg,rgba(170, 121, 14, 0.6),rgb(175, 122, 14))', // Gold gradient
-        color: '#fff',
+        background: 'radial-gradient(circle, #f6e098, #b38348,rgb(102, 75, 42))', // Gold radial gradient
+        boxShadow: "none",
+        color: '#000',
         fontWeight: 'bold',
         textTransform: 'uppercase',
-        borderRadius: '8px',
-        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.2)',
+        borderRadius: '5px',
         '&:hover': {
-          background: 'linear-gradient(90deg,rgb(177, 123, 14),rgb(218, 152, 11))', // Reverse gradient on hover
+          background: 'radial-gradient(circle, #f6e098, #b38348,rgb(102, 75, 42))', // Gold radial gradient
+
         },
       }}
     >

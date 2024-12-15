@@ -13,6 +13,7 @@ import { Typography } from '@mui/material';
 
 const NavBar = ({ children }) => {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+    const isTablet = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1024px)' });
 
     const [activeLink, setActiveLink] = useState('home'); // Track active link
 
@@ -95,7 +96,8 @@ const NavBar = ({ children }) => {
                     left: 0,
                     zIndex: 100,
                     width: "100%",
-                    height: isMobile ? 50 : 100
+                    height: isMobile ? 50 : 100,
+
                 }}
             >
                 <div style={{
@@ -104,22 +106,26 @@ const NavBar = ({ children }) => {
                     alignItems: 'center',
                     justifyItems: 'center',
                     width: isMobile ? "90%" : "80%",
-                    height: isMobile ? 60 : 100,
+                    height: isMobile ? 50 : 100,
                     margin: "0% auto",
                 }}>
                     {/* LOGO */}
                     <div>
-                        <img src={Logo} alt="Radical Herd Logo"
+                        <img
+                            src={Logo}
+                            alt="Radical Herd Logo"
                             style={{
                                 width: isMobile ? 80 : 250,
                                 height: isMobile ? 80 : 195,
                                 cursor: 'pointer'
                             }}
+                            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                         />
                     </div>
 
+
                     {/* NAV LINKS */}
-                    {isMobile ? (
+                    {isMobile || isTablet ? (
                         <div
                             onClick={toggleDrawer}
                             style={{
@@ -214,7 +220,7 @@ const NavBar = ({ children }) => {
                     )}
                 </div>
 
-                {isMobile && (
+                {isMobile || isTablet && (
                     <MobileNav open={isToggled} setOpen={setIsToggled} />
                 )}
             </nav>

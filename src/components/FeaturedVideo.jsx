@@ -5,8 +5,9 @@ import { Skeleton, Typography } from '@mui/material';
 import { motion } from 'framer-motion'; // Import motion for animations
 
 const FeaturedVideo = () => {
-  const Video = "https://www.youtube.com/embed/dQw4w9WgXcQ"; // Example Video ID
+  const Video = "https://www.youtube.com/embed/_sfsCqRJI30"; 
 
+  
   // Responsive queries
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const isTablet = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1024px)' });
@@ -16,6 +17,7 @@ const FeaturedVideo = () => {
   const containerStyle = {
     display: 'flex',
     flexDirection: isMobile ? 'column' : 'row',
+    
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
@@ -37,7 +39,7 @@ const FeaturedVideo = () => {
   };
 
   const iframeStyle = {
-    width: isMobile ? '300px' : isTablet ? '500px' : '720px',
+    width: isMobile ? '100%' : isTablet ? '500px' : '720px',
     height: isMobile ? '170px' : isTablet ? '280px' : '400px',
     objectFit: 'cover',
     borderRadius: isMobile ? '0.5rem' : '1rem',
@@ -66,7 +68,12 @@ const FeaturedVideo = () => {
           </Typography>
 
           <div style={{ paddingLeft: isMobile ? '0' : '4rem' }}>
-            <Button text="Discover more Videos" width='250px' />
+            <Button text="Discover more Videos"
+              onClick = { () => {
+                window.alert("More Videos")
+              }}
+              width='250px' 
+            />
           </div>
         </motion.div>
 
@@ -78,13 +85,14 @@ const FeaturedVideo = () => {
         >
           {Video ? (
             <iframe
-              src={`${Video}?autoplay=1&mute=1`}
-              title="YouTube video"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={iframeStyle}
-            />
+            src={`${Video}?autoplay=1&mute=1&controls=0`}
+            title="YouTube video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={iframeStyle}
+          />
+          
           ) : (
             <Skeleton
               variant="rectangular"

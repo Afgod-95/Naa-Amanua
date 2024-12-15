@@ -3,12 +3,17 @@
   padding: 0;
   text-decoration: none;
   text-transform: uppercase;
+  
 
 }
 
-body {
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   overflow-x: hidden;
 }
+
 
 p{
   font-size: 15px;

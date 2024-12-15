@@ -36,13 +36,14 @@ const variants = {
 const Footer = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' }); // All mobile devices
     const isSmallMob = useMediaQuery({ query: '(max-width: 568px)' }); // smaller mobile devices
+    const isTablet = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1024px)' });
 
     return (
         <>
 
 
 
-            {isMobile ? (
+            {isMobile || isTablet ? (
 
                 <div
                     style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "-5rem"}}
@@ -65,6 +66,7 @@ const Footer = () => {
                     <div style={{
                         display: 'flex',
                         flexWrap: 'wrap',
+                        gap: "2rem",
                         alignItems: 'center',
                         justifyContent: 'center',
                     }}>
@@ -93,13 +95,15 @@ const Footer = () => {
                             </Link>
                         </motion.div>
 
-                        {/* Copyright section with animation */}
-                        <motion.div variants={variants.copyright}>
+                       
+                    </div>
+
+                     {/* Copyright section with animation */}
+                     <motion.div variants={variants.copyright}>
                             <Typography variant="body2" style={{ color: "#000", textAlign: "center", fontSize: isMobile ? "14px" : "15px" }}>
                                 © 2025 Naa Amanua. All rights reserved.
                             </Typography>
                         </motion.div>
-                    </div>
 
 
                 </div>

@@ -56,19 +56,18 @@ const NewsLetter = () => {
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        backgroundColor: '#fff',
-        padding: '2rem 0',
+        backgroundColor: '#fff'
       }}
     >
       <Typography 
         variant="h4" 
-        style={{ marginBottom: '1rem', color: '#000', marginTop: '3rem', textAlign: 'center' }}
+        style={{ marginBottom: '.5rem', color: '#000', textAlign: 'center', }}
       >
         Newsletter
       </Typography>
       <Typography 
         variant="h5" 
-        style={{ fontSize: '1.5rem', color: '#AAAAAA', textAlign: 'center' }}
+        style={{ fontSize: '1.5rem', color: '#AAAAAA', textAlign: 'center', paddingBottom: "1rem" }}
       >
         Sign Up
       </Typography>
@@ -82,9 +81,10 @@ const NewsLetter = () => {
           flexDirection: 'column',
           width: isMobile ? '90%' : '40%',
           margin: '0 auto',
+          paddingBottom: "2rem",
           gap: '1rem',
           alignItems: 'center',
-          padding: '1.5rem',
+        
         }}
         onSubmit={handleSubmit}
       >
@@ -98,7 +98,7 @@ const NewsLetter = () => {
           onChange={handleInputChange}
           sx={{
             backgroundColor: '#fff',
-            borderRadius: '5px',
+           
           }}
         />
 

@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css'
 import NavBar from './NavBar/NavBar'
 import Home from './pages/Home'
+import News from './components/News'
 
 function App() {
   
@@ -10,7 +10,7 @@ function App() {
   return (
     <>
        <NavBar />
-       <Home />
+      <Home />
     </>
   )
 }

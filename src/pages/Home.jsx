@@ -26,11 +26,12 @@ const Home = () => {
 
 
     return (
-        <div>
+        <div style={{ width: "100%" }}>
             <div className='image' id="home"
                 style={{
                     paddingTop: isMobile ? '0px' : isLaptop ? '100px' : '100px',
-                    height: isSmallPhone ? "105vh":""
+                    height: "110vh",
+                    width: "100%",
                 }}
             >
                 <motion.div
@@ -102,7 +103,7 @@ const Home = () => {
                                     flexDirection: isMobile ? "row" : "column",
                                 }}
                             >
-                                Naa 
+                                Naa
                                 <span style={{ textTransform: "capitalize" }}> Amanua</span>
 
                             </Typography>
@@ -123,9 +124,9 @@ const Home = () => {
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
                             viewport={{ once: false, amount: 0.5 }}
-                            style = {{  }}
+                            style={{}}
                         >
-                            <Typography variant="body1" sx={{ textTransform: "none", color: "#fff", textAlign: "center",}}>
+                            <Typography variant="body1" sx={{ textTransform: "none", color: "#fff", textAlign: "center", }}>
                                 The official website of the legendary Mary Naa Amanua Dodoo
                             </Typography>
                         </motion.div>
@@ -134,7 +135,7 @@ const Home = () => {
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
                             viewport={{ once: false, amount: 0.5 }}
-                            style = {{paddingBottom: "2rem"}}
+                            style={{ paddingBottom: "2rem" }}
                         >
                             <Button text={"Learn More"} width={"200px"} />
                         </motion.div>
@@ -142,36 +143,33 @@ const Home = () => {
                 </motion.div>
             </div>
 
-            {/* --------------------ABOUT */}
+
 
             <About />
 
+            <News />
 
-            {/* --------------------NEWS */}
-            <motion.div
-                id='news'
-                style={{
-                    width: "100%",
-                }}
-            >
-                <News />
-            </motion.div>
-
-            {/* --------------------GREATEST HITS*/}
 
             <GreatestHits />
 
 
             <FeaturedVideo />
-
-
-
             <Foundation />
 
-
             <NewsLetter />
-            
-           
+
+
+
+
+
+
+
+
+
+
+
+
+
             <Footer />
         </div>
     );

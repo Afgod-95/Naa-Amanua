@@ -52,7 +52,7 @@ const Foundation = () => {
                     alignItems: 'flex-start',
                     flexDirection: isMobile ? "column" : 'row',
                     width: '80%',
-                    marginBottom: '3rem',
+                    marginBottom: '2rem',
                 }}
             >
                 {/* Animate Image Section */}
@@ -70,7 +70,6 @@ const Foundation = () => {
                             maxWidth: '600px',
                             height: 'auto',
                             borderRadius: '10px',
-                            marginBottom: '2rem',
                             boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
                         }}
                     />
@@ -81,6 +80,7 @@ const Foundation = () => {
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
                     viewport={{ once: false, amount: 0.5 }}
+                    style={{ display: 'flex', flexDirection: 'column', alignItems: isMobile ? "center" : "" }}
                 >
                     <Typography
                         variant="body1"

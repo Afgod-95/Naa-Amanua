@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa6';
 import { useMediaQuery } from 'react-responsive';
+import { Typography } from '@mui/material';
 
 const albumData = [
     { id: 1, title: "Album 1", image: "https://via.placeholder.com/300x200.png?text=Album+1" },
@@ -21,7 +22,7 @@ const Carousel = () => {
     const isDesktop = useMediaQuery({ query: '(min-width: 1025px)' });
 
     return (
-        <div style={{ width: '90%', margin: '0 auto', position: 'relative' }}>
+        <div style={{ width: '70%', margin: '0 auto', position: 'relative' }}>
             <Swiper
                 modules={[Navigation]}
                 navigation={{
@@ -31,8 +32,8 @@ const Carousel = () => {
                 }}
                 slidesPerView={isMobile ? 1 : isTablet ? 2 : 3} // Adjust slides per view based on screen size
                 spaceBetween={isMobile ? 10 : 15} // Adjust space between slides
-                loop={true}
-                style={{ padding: '20px 0' }}
+                loop={true} style={{ padding: '20px 0', }}
+
             >
                 {albumData.map((album) => (
                     <SwiperSlide key={album.id}>
@@ -49,8 +50,8 @@ const Carousel = () => {
                                 alt={album.title}
                                 className="album-image"
                                 style={{
-                                    width: '100%',
-                                    height: isMobile ? '150px' : '200px',
+                                    maxWidth: "100%",
+                                    height: "100%",
                                     objectFit: 'cover',
                                     borderRadius: '8px',
                                 }}
@@ -64,7 +65,10 @@ const Carousel = () => {
                                 }}
                             >
 
-                                Helloh
+                                <Typography>
+                                    Naa Amanua Worlomei
+                                </Typography>
+
                             </div>
 
                             <div
@@ -76,7 +80,9 @@ const Carousel = () => {
                                 }}
                             >
 
-                                {album.title}
+                                <Typography>
+                                    {album.title}
+                                </Typography>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -85,10 +91,10 @@ const Carousel = () => {
 
             {/* Custom Arrows */}
             <div className="swiper-button-prev" style={{ position: 'absolute', left: '-40px', top: '50%', zIndex: 10 }}>
-                <FaChevronLeft size={isMobile ? 24: 30} />
+                <FaChevronLeft size={isMobile ? 24 : 30} />
             </div>
             <div className="swiper-button-next" style={{ position: 'absolute', right: '-40px', top: '50%', zIndex: 10 }}>
-                <FaChevronRight size={isMobile ? 24: 30} />
+                <FaChevronRight size={isMobile ? 24 : 30} />
             </div>
         </div>
     );

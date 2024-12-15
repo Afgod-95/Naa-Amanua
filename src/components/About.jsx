@@ -12,6 +12,7 @@ const About = () => {
         justifyContent: 'center',
         alignItems: 'center',
         padding: '2rem',
+       
         backgroundColor: '#F5F5F5',
       }}
     >
