@@ -220,7 +220,7 @@ const NavBar = ({ children }) => {
                     )}
                 </div>
 
-                {isMobile || isTablet && (
+                {isMobile && isTablet && (
                     <MobileNav open={isToggled} setOpen={setIsToggled} />
                 )}
             </nav>
