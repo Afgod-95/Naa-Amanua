@@ -30,7 +30,7 @@ const Home = () => {
             <div className='image' id="home"
                 style={{
                     paddingTop: isMobile ? '0px' : isLaptop ? '100px' : '100px',
-                    height: "110vh",
+                   
                     width: "100%",
                 }}
             >
@@ -52,9 +52,8 @@ const Home = () => {
                     <div
                         style={{
                             width: "100%",
-                            height: isMobile ? "50vh" : "90vh",
+                            height: isMobile ? "40vh" : isSmallPhone ? "20vh" : "90vh",
                             position: "relative",
-
                         }}
                     >
                         <img

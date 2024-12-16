@@ -15,8 +15,8 @@ const News = () => {
             id="news"
             style={{
                 width: '100vw',
-                minHeight: '90vh',
-                overflowX: 'hidden', // Prevent horizontal overflow
+                maxHeight: '95vh',
+                overflowX: 'hidden', 
                 padding: isMobile ? '1rem' : '2rem',
                 boxSizing: 'border-box',
             }}
