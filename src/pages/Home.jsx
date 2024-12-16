@@ -144,6 +144,8 @@ const Home = () => {
                     </div>
                 </motion.div>
             </div>
+            
+            <About />
 
             <News />
 

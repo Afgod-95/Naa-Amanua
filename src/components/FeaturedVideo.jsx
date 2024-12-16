@@ -39,7 +39,7 @@ const FeaturedVideo = () => {
   };
 
   const iframeStyle = {
-    width: isMobile ? '100%' : isTablet ? '500px' : '720px',
+    width: isMobile ? '100%' : isTablet ? '400px' : '720px',
     height: isMobile ? '170px' : isTablet ? '280px' : '400px',
     objectFit: 'cover',
     borderRadius: isMobile ? '0.5rem' : '1rem',
@@ -61,6 +61,7 @@ const FeaturedVideo = () => {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0, transition: { duration: 1 } }}
           viewport={{ once: false, amount: 0.5 }}
+         
         >
           <Typography variant="h2" style={typographyStyle}>
             Featured

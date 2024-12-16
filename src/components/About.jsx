@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import { motion } from 'framer-motion';  
+import { motion } from 'framer-motion';
 import GradientButton from './GradientButton';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ const About = () => {
         justifyContent: 'center',
         alignItems: 'center',
         padding: '2rem',
-       
+
         backgroundColor: '#F5F5F5',
       }}
     >
@@ -51,7 +51,7 @@ const About = () => {
             marginBottom: '1.5rem',
           }}
         >
-         Mary Naa Amanua Dodoo, popularly known as Naa Amanua, is a Ghanaian music legend who has been serenading audiences with her folklore music for decades...
+          Mary Naa Amanua Dodoo, popularly known as Naa Amanua, is a Ghanaian music legend who has been serenading audiences with her folklore music for decades. Her soulful voice captivated the hearts of many as the lead female singer of the iconic Ghanaian music group, Wulomei founded in 1973...
         </Typography>
       </motion.div>
 
@@ -60,7 +60,7 @@ const About = () => {
         whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
         viewport={{ once: false, amount: 0.5 }}
       >
-        <GradientButton text={"Read more"} onClick = {() => navigate('/about')}/>
+        <GradientButton text={"Read more"} onClick={() => navigate('/about')} />
       </motion.div>
     </div>
   );

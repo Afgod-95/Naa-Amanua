@@ -106,9 +106,29 @@ const About = () => {
                             textAlign: 'justify',
                         }}
                     >
-                        In 1978, the group embarked on an extensive West African tour, performing in Benin, Togo, Liberia, and Kenya. One of the highlights of their tour was a special performance for President Jomo Kenyatta in Kenya. Naa Amanua's passion for music has been the driving force behind her incredible journey. She has been performing to date, from the moment she discovered her love for music. Her hard work has paid off as she has won awards, including the prestigious Lifetime Achievement Award at the 2018 Vodafone Ghana Music Awards.
+                        In 1978, the group embarked on an extensive West African tour, performing in Benin, Togo, Liberia, and Kenya. One of the highlights of their tour was a special performance for President Jomo Kenyatta in Kenya. Naa Amanua's passion for music has been the driving force behind her incredible journey. 
                     </Typography>
                 </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+                    viewport={{ once: false, amount: 0.5 }}
+                >
+                    <Typography
+                        variant="body1"
+                        style={{
+                            maxWidth: '900px',
+                            lineHeight: '1.8',
+                            fontSize: '1.25rem',
+                            textAlign: 'justify',
+                        }}
+                    >
+                        She has been performing to date, from the moment she discovered her love for music. Her hard work has paid off as she has won awards, including the prestigious Lifetime Achievement Award at the 2018 Vodafone Ghana Music Awards.
+                    </Typography>
+                </motion.div>
+
+                
             </div>
             <Footer />
         </>
