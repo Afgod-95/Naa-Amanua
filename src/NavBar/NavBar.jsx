@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import { motion } from 'framer-motion';
 import Logo from '../assets/PNG/logo.png';
 import MobileNav from '../components/MobileNav';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaInstagram } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { IoLogoYoutube } from "react-icons/io";
@@ -18,13 +18,15 @@ const NavBar = ({ children }) => {
     const [activeLink, setActiveLink] = useState('home'); // Track active link
 
     const linkToId = [
-        { label: 'Home', id: 'home' },
-        { label: 'About', id: 'about' },
-        { label: 'News', id: 'news' },
-        { label: 'Music', id: 'music' },
-        { label: 'Videos', id: 'videos' },
-        { label: 'Foundation', id: 'foundation' },
+        { label: 'Home', id: 'home', path: '/' },
+        { label: 'About', id: 'about', path: '/about' },
+        { label: 'News', id: 'news', path: '/' },
+        { label: 'Music', id: 'music', path: '/' },
+        { label: 'Videos', id: 'videos', path: '/' },
+        { label: 'Foundation', id: 'foundation', path: '/' },
     ];
+
+    const navigate = useNavigate();
 
     // Add shadow to navbar and change position based on reverse scrollY
     useEffect(() => {
@@ -45,10 +47,24 @@ const NavBar = ({ children }) => {
     }, []);
 
     // Scroll to section
-    const scrollToSection = (id) => {
-        setActiveLink(id);
-        const element = document.getElementById(id);
-        element.scrollIntoView({ behavior: 'smooth' });
+    const scrollToSection = (id, path) => {
+      
+        if (['home', 'news', 'music', 'videos', 'foundation', 'news-letter-signup'].includes(id) && path) {
+           
+            const element = document.getElementById(id);
+            if (element) {
+                setActiveLink(id);
+                element.scrollIntoView({ behavior: 'smooth' });
+               
+            } else {
+                console.warn(`Element with ID "${id}" not found.`);
+            } 
+            navigate(path);
+        }
+        else if (path) {
+            console.warn(`No ID provided for scrolling. Path "${path}" was passed.`);
+            navigate(path);
+        }
     };
 
     const [isToggled, setIsToggled] = useState(false);
@@ -69,7 +85,7 @@ const NavBar = ({ children }) => {
                 });
             },
             {
-                rootMargin: '0px 0px -50% 0px', // Trigger when the section is halfway in view
+                rootMargin: '0px 0px -50% 0px',
             }
         );
 
@@ -185,7 +201,7 @@ const NavBar = ({ children }) => {
                                     <div
                                         key={index}
                                         className="links"
-                                        onClick={() => scrollToSection(link.id)}
+                                        onClick={() => scrollToSection(link.id, link.path)}
                                         style={{
                                             cursor: 'pointer',
                                             color: activeLink === link.id ? '#808080' : '#000', // Set grey for active link
@@ -214,7 +230,7 @@ const NavBar = ({ children }) => {
                             </div>
 
                             <div>
-                                <Button text={"News Letter"} onClick={() => scrollToSection("news-letter-signup")} />
+                                <Button text={"News Letter"} onClick={() => scrollToSection("news-letter-signup",'/')} />
                             </div>
                         </div>
                     )}

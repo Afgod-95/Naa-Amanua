@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Logo from "../src/assets/PNG/logo.png";
 import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
+import { Routes, Route, useLocation } from "react-router-dom";
+import About from "./pages/About";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,6 +18,14 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
+
+  const location = useLocation();
+  const validPaths = ['/',]
+
+  //show nav bar
+  const showNavBar = validPaths.includes(location.pathname);
+
+  
 
   const PageLoading = () => {
     return (
@@ -62,8 +72,11 @@ function App() {
         <PageLoading />
       ) : (
         <>
-          <NavBar />
-          <Home />
+         <NavBar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/about" element={<About />} />
+          </Routes>
         </>
       )}
     </>

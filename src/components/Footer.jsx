@@ -109,13 +109,14 @@ const Footer = () => {
                 </div>
 
             ) : (
-
+                
                 <motion.div
 
                     style={{
                         marginTop: "2rem",
                         margin: "5% auto",
                         width: isMobile ? "90%" : '80%',
+                        
                     }}
                     variants={variants.section3}
                     initial="hidden"

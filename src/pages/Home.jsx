@@ -12,6 +12,7 @@ import Footer from '../components/Footer';
 import Foundation from '../components/Foundation';
 import { Typography } from '@mui/material';  // Importing Typography component
 import { useMediaQuery } from 'react-responsive';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
 
@@ -24,13 +25,15 @@ const Home = () => {
     //laptop media query
     const isLaptop = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1440px)' });
 
+    const navigate = useNavigate();
+
 
     return (
         <div style={{ width: "100%" }}>
             <div className='image' id="home"
                 style={{
                     paddingTop: isMobile ? '0px' : isLaptop ? '100px' : '100px',
-                   
+
                     width: "100%",
                 }}
             >
@@ -126,7 +129,7 @@ const Home = () => {
                             style={{}}
                         >
                             <Typography variant="body1" sx={{ textTransform: "none", color: "#fff", textAlign: "center", }}>
-                                The official website of the legendary Mary Naa Amanua Dodoo
+                                The official website of Folklore music legend Mary Naa Amanua Dodoo of Wulomei music group fame.
                             </Typography>
                         </motion.div>
 
@@ -136,15 +139,11 @@ const Home = () => {
                             viewport={{ once: false, amount: 0.5 }}
                             style={{ paddingBottom: "2rem" }}
                         >
-                            <Button text={"Learn More"} width={"200px"} />
+                            <Button text={"Learn More"} width={"200px"} onClick = {() => navigate('/about')} />
                         </motion.div>
                     </div>
                 </motion.div>
             </div>
-
-
-
-            <About />
 
             <News />
 

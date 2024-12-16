@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import { navCol } from '../constant/Colors';
 import { useMediaQuery } from 'react-responsive';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaInstagram } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { IoLogoYoutube } from "react-icons/io";
@@ -15,43 +15,59 @@ export default function MobileNav({ open, setOpen }) {
         setOpen(newOpen);
     };
 
-    
-     const [activeLink, setActiveLink] = useState('home'); // Track active link
-    
-        const linkToId = [
-            { label: 'Home', id: 'home' },
-            { label: 'About', id: 'about' },
-            { label: 'News', id: 'news' },
-            { label: 'Music', id: 'music' },
-            { label: 'Videos', id: 'videos' },
-            { label: 'Foundation', id: 'foundation' },
-        ];
-    
-        // Add shadow to navbar and change position based on reverse scrollY
-        useEffect(() => {
-            const handleScroll = () => {
-                if (window.scrollY > 100) {
-                    document.querySelector('nav').style.boxShadow = '0px 2px 10px rgba(0,0,0,0.2)';
-                    document.querySelector('nav').style.position = 'fixed';
-                } else {
-                    document.querySelector('nav').style.boxShadow = 'none';
-                    document.querySelector('nav').style.position = 'relative';
-                }
-            };
-    
-            window.addEventListener('scroll', handleScroll);
-            return () => {
-                window.removeEventListener('scroll', handleScroll);
-            };
-        }, []);
-    
-        // Scroll to section
-        const scrollToSection = (id) => {
-            setActiveLink(id);
-            const element = document.getElementById(id);
-            element.scrollIntoView({ behavior: 'smooth' });
+
+    const [activeLink, setActiveLink] = useState('home'); // Track active link
+
+    const linkToId = [
+        { label: 'Home', id: 'home', path: '/' },
+        { label: 'About', id: 'about', path: '/about' },
+        { label: 'News', id: 'news', path: '/' },
+        { label: 'Music', id: 'music', path: '/' },
+        { label: 'Videos', id: 'videos', path: '/' },
+        { label: 'Foundation', id: 'foundation', path: '/' },
+    ];
+
+    const navigate = useNavigate();
+
+    // Add shadow to navbar and change position based on reverse scrollY
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                document.querySelector('nav').style.boxShadow = '0px 2px 10px rgba(0,0,0,0.2)';
+                document.querySelector('nav').style.position = 'fixed';
+            } else {
+                document.querySelector('nav').style.boxShadow = 'none';
+                document.querySelector('nav').style.position = 'relative';
+            }
         };
-    
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+     // Scroll to section
+     const scrollToSection = (id, path) => {
+      
+        if (['home', 'news', 'music', 'videos', 'foundation', 'news-letter-signup'].includes(id) && path) {
+           
+            const element = document.getElementById(id);
+            if (element) {
+                setActiveLink(id);
+                element.scrollIntoView({ behavior: 'smooth' });
+               
+            } else {
+                console.warn(`Element with ID "${id}" not found.`);
+            } 
+            navigate(path);
+        }
+        else if (path) {
+            console.warn(`No ID provided for scrolling. Path "${path}" was passed.`);
+            navigate(path);
+        }
+    };
+
 
 
 
@@ -86,12 +102,12 @@ export default function MobileNav({ open, setOpen }) {
 
 
 
-                <div style={{ display: "flex", flexDirection: "column",  gap: ".5rem" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: ".5rem" }}>
                     {linkToId.map((link, index) => (
                         <div
                             key={index}
                             className="links"
-                            onClick={() => scrollToSection(link.id)}
+                            onClick={() => scrollToSection(link.id, link.path)}
                             style={{
                                 cursor: 'pointer',
                                 color: activeLink === link.id ? '#808080' : '#000', // Set grey for active link
@@ -109,25 +125,19 @@ export default function MobileNav({ open, setOpen }) {
                 {/* SOCIAL LINKS */}
                 <div style={{ display: "flex", gap: ".5rem", alignItems: "center" }}>
                     <Link to="" target="blank" className="icons">
-                        <FaInstagram size={24}  />
+                        <FaInstagram size={24} />
                     </Link>
                     <Link className="icons">
                         <FaSquareFacebook size={24} />
                     </Link>
                     <Link className="icons">
-                        <IoLogoYoutube size={24}  style={{ fontSize: "30px" }} />
+                        <IoLogoYoutube size={24} style={{ fontSize: "30px" }} />
                     </Link>
                 </div>
 
                 <div>
-                    <GradientButton text={"News Letter"} onClick={() => scrollToSection("news-letter-signup")} />
+                    <GradientButton text={"News Letter"} onClick={() => scrollToSection("news-letter-signup", '/')} />
                 </div>
-
-
-
-
-
-
 
             </div>
         </Box>
