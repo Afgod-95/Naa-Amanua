@@ -48,7 +48,7 @@ function App() {
         <motion.img
           src={Logo}
           style={{
-            width: "500px",
+            width: "300px",
             height: "auto",
           }}
           alt="logo"
