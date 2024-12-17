@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { navCol } from '../constant/Colors';
 import { useMediaQuery } from 'react-responsive';
 import { motion } from 'framer-motion';
-import Logo from '../assets/PNG/logo.png';
 import MobileNav from '../components/MobileNav';
 import {  useNavigate } from 'react-router-dom';
 
@@ -132,7 +131,7 @@ const NavBar = ({ children }) => {
                             src={mainLogo}
                             alt="nAA AMANUA LOGO"
                             style={{
-                                width: "100%",
+                                width: isMobile ? "150px" : "100%",
                                 height: isMobile ? 50 : 80,
                                 cursor: 'pointer'
                             }}
