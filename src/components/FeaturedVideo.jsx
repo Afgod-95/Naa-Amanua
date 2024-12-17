@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './GradientButton';
 import { useMediaQuery } from 'react-responsive';
 import { Skeleton, Typography } from '@mui/material'; 
-import { motion } from 'framer-motion'; // Import motion for animations
+import { motion } from 'framer-motion'; 
 
 const FeaturedVideo = () => {
   const Video = "https://www.youtube.com/embed/_sfsCqRJI30"; 
