@@ -132,7 +132,7 @@ const NavBar = ({ children }) => {
                             alt="nAA AMANUA LOGO"
                             style={{
                                 width: isMobile ? "150px" : "100%",
-                                height: isMobile ? 50 : 80,
+                                height: isMobile ? "auto" : 80,
                                 cursor: 'pointer'
                             }}
                             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
