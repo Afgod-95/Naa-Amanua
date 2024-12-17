@@ -26,8 +26,8 @@ const FeaturedVideo = () => {
 
   const contentStyle = {
     display: 'flex',
-    paddingTop: '2rem',
-    paddingBottom: "2rem",
+    paddingTop: '3rem',
+    paddingBottom: "3rem",
     flexDirection: isMobile ? 'column' : 'row',
     justifyContent: 'center',
     alignItems: 'center',
