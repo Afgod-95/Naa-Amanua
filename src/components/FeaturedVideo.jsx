@@ -86,7 +86,7 @@ const FeaturedVideo = () => {
         >
           {Video ? (
             <iframe
-            src={`${Video}?autoplay=1`}
+            src={`${Video}`}
             title="YouTube video"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
