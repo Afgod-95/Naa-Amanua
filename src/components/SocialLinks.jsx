@@ -16,7 +16,7 @@ const SocialLinks = () => {
             <Link to="https://www.facebook.com/share/195MwiuQPb/?mibextid=LQQJ4d" target='_blank' className="icons">
                 <FaSquareFacebook size={isMobile ? 24 : 30} />
             </Link>
-            <Link to="https://youtube.com/@naaamanuadodoo?si=7ape5-zghzpQokN2" target="blank" className="icons">
+            <Link to="https://www.youtube.com/@MaryNaaAmanuaDodoo-Wulomei" target="blank" className="icons">
                 <IoLogoYoutube size={isMobile ? 24 : 35} style={{ fontSize: "30px" }} />
             </Link>
         </div>

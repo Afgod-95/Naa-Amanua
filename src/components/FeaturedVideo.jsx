@@ -5,8 +5,7 @@ import { Skeleton, Typography } from '@mui/material';
 import { motion } from 'framer-motion'; 
 
 const FeaturedVideo = () => {
-  const Video = "https://www.youtube.com/embed/_sfsCqRJI30"; 
-
+  const Video = "https://www.youtube.com/embed/VE5iGOjy7s0"; 
   
   // Responsive queries
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });

@@ -90,7 +90,7 @@ const Footer = () => {
                             <Link  to="https://www.facebook.com/share/195MwiuQPb/?mibextid=LQQJ4d" target='blank' className='info'>
                                 <FaSquareFacebook size={isMobile ? 24 : 30} />
                             </Link>
-                            <Link to="https://youtube.com/@naaamanuadodoo?si=7ape5-zghzpQokN2" target='blank' className='info'>
+                            <Link to="https://www.youtube.com/@MaryNaaAmanuaDodoo-Wulomei" target='blank' className='info'>
                                 <IoLogoYoutube size={isMobile ? 24 : 35} style={{ fontSize: "30px" }} />
                             </Link>
                         </motion.div>
@@ -191,7 +191,7 @@ const Footer = () => {
                             <Link to="https://www.facebook.com/share/195MwiuQPb/?mibextid=LQQJ4d" target='blank' className='info'>
                                 <FaSquareFacebook size={isMobile ? 20 : 24} />
                             </Link>
-                            <Link to="https://youtube.com/@naaamanuadodoo?si=7ape5-zghzpQokN2" target='blank' className='info'>
+                            <Link to="https://www.youtube.com/@MaryNaaAmanuaDodoo-Wulomei" target='blank' className='info'>
                                 <IoLogoYoutube size={isMobile ? 20 : 28} style={{ fontSize: "30px" }} />
                             </Link>
                         </motion.div>
