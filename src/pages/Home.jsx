@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';  // Importing motion from framer-motion
 import Picture from '../assets/PNG/picture.png';
 import Button from '../components/GradientButton';
-import { goldText } from '../constant/Colors';
+import { goldText } from '../utils/Colors';
 import News from '../components/News';
 import GreatestHits from '../components/GreatestHits';
 import FeaturedVideo from '../components/FeaturedVideo';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import VGMA from '../assets/PNG/VGMA.png';
 import LOGHA from '../assets/PNG/LOGHA.png'
 import HOMOWO from '../assets/PNG/HOMOWO.png'
@@ -7,15 +7,34 @@ import { Typography } from '@mui/material'; // Typography added for replacement
 import { motion } from 'framer-motion'; // Import motion for animations
 import { useMediaQuery } from 'react-responsive';
 import OutlinedButton from './OutlineButton';
-import { useNavigate } from 'react-router-dom';
-import { getFormattedDate } from '../constant/FormatDate';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { getFormattedDate } from '../utils/FormatDate';
+import { latestNews } from '../news-data/singleNews';
 
 const News = () => {
     // Mobile media query
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-    
-    const navigate = useNavigate();
 
+    const selectedNews = latestNews[0]; // Select the first news item
+
+    const navigate = useNavigate();
+   
+    const handleNewsNavigate = () => {
+        
+        if (!selectedNews) {
+            console.error("No news item available to navigate.");
+            return;
+        }
+    
+        navigate(`/news`, { state: { news: selectedNews } });
+    };
+
+    const seeAllNews = () => {
+        navigate('/news/all');
+    }
+    
+  
+   
     //awards
     const awardImages = [
         VGMA,
@@ -29,7 +48,7 @@ const News = () => {
             style={{
                 width: '100vw',
                 maxHeight: '95vh',
-                overflowX: 'hidden', 
+                overflowX: 'hidden',
                 padding: isMobile ? '1rem' : '2rem',
                 boxSizing: 'border-box',
             }}
@@ -77,7 +96,7 @@ const News = () => {
                             textAlign: 'center',
                             display: 'flex',
                             flexDirection: 'column',
-                            justifyContent: 'center',
+                            justifyContent: 'flex-start',
                             alignItems: 'center',
                             gap: '1rem',
                         }}
@@ -92,24 +111,24 @@ const News = () => {
                                 textTransform: 'capitalize',
                                 display: 'flex',
                                 flexDirection: 'column',
-                                textAlign: 'center',
+                               
                                 fontSize: '18px',
                             }}
                         >
                             Latest
                             <span style={{ fontSize: '3rem' }}>News</span>
                         </Typography>
-                        
+
                         <Typography
                             style={{
                                 width: '100%',
                                 fontSize: '1.2rem',
                                 color: '#fff',
-                                fontWeight: '100',
-                                color: '#d1d1d1'
+                                fontWeight: '200',
+                                color: 'white'
                             }}
                         >
-                            {getFormattedDate}
+                           {selectedNews.date }
                         </Typography>
 
                         <Typography
@@ -119,10 +138,10 @@ const News = () => {
                                 textAlign: 'center',
                                 fontSize: '1.2rem',
                                 color: '#fff',
+                                textTransform: 'capitalize',
                             }}
                         >
-                            <span>Legend! </span>
-                            Naa Amanua of Wulomei Group Is 2018 VGMA Lifetime Achievement Honoree
+                            {selectedNews.title}
                         </Typography>
 
                         <motion.div
@@ -139,8 +158,8 @@ const News = () => {
                             whileInView={{ opacity: 1, transition: { duration: 1 } }}
                             viewport={{ once: false, amount: 0.5 }}
                         >
-                            <OutlinedButton text={'Read more'} width={'80%'} onClick = {() => navigate({ to: '/news' })} />
-                            <GradientButton text={'See All News'} width={'80%'} />
+                            <OutlinedButton text={'Read more'} width={'80%'} onClick={(handleNewsNavigate)} />
+                            <GradientButton text={'See All News'} width={'80%'} onClick={seeAllNews}/>
                         </motion.div>
                     </motion.div>
                 </>
@@ -193,6 +212,7 @@ const News = () => {
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'center',
+                            alignItems: "flex-start",
                             gap: '1rem',
                         }}
                         initial={{ opacity: 0, x: 50 }}
@@ -212,17 +232,17 @@ const News = () => {
                             Latest
                             <span style={{ fontSize: '3rem' }}>News</span>
                         </Typography>
-                        
+
                         <Typography
                             style={{
                                 width: '100%',
-                                fontSize: '1.2rem',
+                                fontSize: '12px',
                                 color: '#fff',
-                                fontWeight: '100',
-                                color: '#808080'
+                                fontWeight: '200',
+                                color: 'white'
                             }}
                         >
-                            {getFormattedDate}
+                           {latestNews[0].date}
                         </Typography>
                         <Typography
                             style={{
@@ -231,10 +251,10 @@ const News = () => {
                                 textAlign: 'left',
                                 fontSize: '1.2rem',
                                 color: '#fff',
+                                textTransform: 'capitalize',
                             }}
                         >
-                            <span>Legend! </span>
-                            Naa Amanua of Wulomei Group Is 2018 VGMA Lifetime Achievement Honoree
+                           {latestNews[0].title}
                         </Typography>
 
                         <motion.div
@@ -250,8 +270,8 @@ const News = () => {
                             whileInView={{ opacity: 1, transition: { duration: 1 } }}
                             viewport={{ once: false, amount: 0.5 }}
                         >
-                            <OutlinedButton text={'Read More'} width={'200px'} onClick={() => navigate('/news')}/>
-                            <GradientButton text={'See All News'} width={'200px'} />
+                            <OutlinedButton text={'Read More'} width={'100px'} onClick={handleNewsNavigate} />
+                            <GradientButton text={'See All News'} width={'100px'} onClick={seeAllNews}  />
                         </motion.div>
                     </motion.div>
                 </div>

@@ -68,12 +68,12 @@ const FeaturedVideo = () => {
             <span style={{ fontSize: isMobile ? '36px' : '50px' }}>Video</span>
           </Typography>
 
-          <div style={{ paddingLeft: isMobile ? '0' : '4rem' }}>
+          <div style={{ paddingLeft: '0' }}>
             <Button text="See more Videos"
               onClick = { () => {
                 window.alert("More Videos")
               }}
-              width='250px' 
+              width='150px' 
             />
           </div>
         </motion.div>
@@ -86,7 +86,7 @@ const FeaturedVideo = () => {
         >
           {Video ? (
             <iframe
-            src={`${Video}?autoplay=1&mute=1&controls=0`}
+            src={`${Video}?autoplay=1`}
             title="YouTube video"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -14,7 +14,7 @@ const GradientButton = ({ onClick, text, width = '150px', height = '50px' }) => 
         fontWeight: 'bold',
         textTransform: 'uppercase',
         borderRadius: '5px',
-        fontSize: "12px",
+        fontSize: "10px",
         '&:hover': {
           background: 'radial-gradient(circle, #f6e098, #b38348,rgb(102, 75, 42))', // Gold radial gradient
 

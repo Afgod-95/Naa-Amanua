@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { navCol } from '../constant/Colors';
+import { navCol } from '../utils/Colors';
 import { useMediaQuery } from 'react-responsive';
 import { motion } from 'framer-motion';
 import MobileNav from '../components/MobileNav';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '../components/GradientButton';
 import { Typography } from '@mui/material';
 import SocialLinks from '../components/SocialLinks';
 import mainLogo from '../assets/PNG/NAA_AMANUA.png'
+import DonateToday from '../components/DonateToday';
 
 const NavBar = ({ children }) => {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -24,6 +25,10 @@ const NavBar = ({ children }) => {
         { label: 'Videos', id: 'videos', path: '/' },
         { label: 'Foundation', id: 'foundation', path: '/' },
     ];
+
+    const [modalOpen, setModalOpen] = useState(false);
+    const handleOpen = () => setModalOpen(true);
+    const handleClose = () => setModalOpen(false);
 
     const navigate = useNavigate();
 
@@ -47,17 +52,17 @@ const NavBar = ({ children }) => {
 
     // Scroll to section
     const scrollToSection = (id, path) => {
-      
+
         if (['home', 'news', 'music', 'videos', 'foundation'].includes(id) && path) {
-           
+
             const element = document.getElementById(id);
             if (element) {
                 setActiveLink(id);
                 element.scrollIntoView({ behavior: 'smooth' });
-               
+
             } else {
                 console.warn(`Element with ID "${id}" not found.`);
-            } 
+            }
             navigate(path);
         }
         else if (path) {
@@ -123,7 +128,7 @@ const NavBar = ({ children }) => {
                     width: isMobile ? "90%" : "80%",
                     height: isMobile ? 50 : 100,
                     margin: "auto",
-                    
+
                 }}>
                     {/* LOGO */}
                     <div>
@@ -217,10 +222,10 @@ const NavBar = ({ children }) => {
                             </div>
 
                             {/* SOCIAL LINKS */}
-                           <SocialLinks />
+                            <SocialLinks />
 
                             <div>
-                                <Button text={"Donate Today"} onClick={() => alert("You clicked on donate today")} />
+                                <Button text={"Donate Today"} onClick={handleOpen} />
                             </div>
                         </div>
                     )}
@@ -231,6 +236,8 @@ const NavBar = ({ children }) => {
                 )}
 
             </nav>
+
+            {modalOpen &&   <DonateToday open={modalOpen} onClose={handleClose} />}
 
             <div>{children}</div>
         </div>

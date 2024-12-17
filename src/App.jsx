@@ -5,10 +5,11 @@ import Logo from "../src/assets/PNG/NAA_AMANUA.png";
 import { motion } from "framer-motion";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Typography } from "@mui/material";
+import AllNews from "./pages/AllNews.jsx";
 
-const Home = React.lazy(() => import("./pages/Home"));
-const About = React.lazy(() => import("./pages/About"));
-const News = React.lazy(() => import("./pages/News"));
+const Home = React.lazy(() => import("./pages/Home.jsx"));
+const About = React.lazy(() => import("./pages/About.jsx"));
+const News = React.lazy(() => import("./pages/News.jsx"));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +24,8 @@ function App() {
 
   const location = useLocation();
   const validPaths = ['/', '/about'];
+
+
 
   // Show NavBar only on certain paths
   const showNavBar = validPaths.includes(location.pathname);
@@ -78,6 +81,7 @@ function App() {
               <Route exact path="/" element={<Home />} />
               <Route exact path="/about" element={<About />} />
               <Route exact path="/news" element={<News />} />
+              <Route exact path = '/news/all' element = { <AllNews /> } />
             </Routes>
           </Suspense>
         </>

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import { navCol } from '../constant/Colors';
+import { navCol } from '../utils/Colors';
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
 import GradientButton from '../components/GradientButton';
 import { Typography } from '@mui/material';
 import SocialLinks from './SocialLinks';
+import DonateToday from './DonateToday';
 
 export default function MobileNav({ open, setOpen }) {
     const toggleDrawer = (newOpen) => () => {
@@ -45,19 +46,19 @@ export default function MobileNav({ open, setOpen }) {
         };
     }, []);
 
-     // Scroll to section
-     const scrollToSection = (id, path) => {
-      
+    // Scroll to section
+    const scrollToSection = (id, path) => {
+
         if (['home', 'news', 'music', 'videos', 'foundation', 'news-letter-signup'].includes(id) && path) {
-           
+
             const element = document.getElementById(id);
             if (element) {
                 setActiveLink(id);
                 element.scrollIntoView({ behavior: 'smooth' });
-               
+
             } else {
                 console.warn(`Element with ID "${id}" not found.`);
-            } 
+            }
             navigate(path);
         }
         else if (path) {
@@ -71,6 +72,10 @@ export default function MobileNav({ open, setOpen }) {
 
     const isSmallMob = useMediaQuery({ query: '(max-width: 568px)' }); // smaller mobile devices
     const isTablet = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1024px)' });
+
+    const [modalOpen, setModalOpen] = useState(false);
+    const handleOpen = () => setModalOpen(true);
+    const handleClose = () => setModalOpen(false);
 
     const DrawerList = (
         <Box
@@ -120,10 +125,10 @@ export default function MobileNav({ open, setOpen }) {
 
                 </div>
 
-               <SocialLinks />
+                <SocialLinks />
 
                 <div>
-                    <GradientButton text={"Donate Today"} onClick={() => alert("Donate Today")} />
+                    <GradientButton text={"Donate Today"} onClick={handleOpen} />
                 </div>
 
             </div>
@@ -131,7 +136,7 @@ export default function MobileNav({ open, setOpen }) {
     );
 
     return (
-        <Drawer
+        <> <Drawer
             anchor="right" // Open from the right
             open={open}
             onClose={toggleDrawer(false)}
@@ -143,5 +148,9 @@ export default function MobileNav({ open, setOpen }) {
         >
             {DrawerList}
         </Drawer>
+            {modalOpen && <DonateToday open={modalOpen} onClose={handleClose} />}
+
+        </>
+
     );
 }

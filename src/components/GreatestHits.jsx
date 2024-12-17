@@ -39,18 +39,9 @@ const GreatestHits = () => {
                     viewport={{ once: false, amount: 0.5 }}
                 >
                     <Typography variant="h4" style={{ display: "flex", fontSize: "20px", flexDirection: "column" }}>
-                        Greatest
+                        Featured
                         <span style={{ fontWeight: "bold", fontSize: "5rem" }}> Hits</span>
                     </Typography>
-                </motion.div>
-
-                {/* Animated Discover More Button */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
-                    viewport={{ once: false, amount: 0.5 }}
-                >
-                    <Button text="Discover more albums" width= {'250px'} />
                 </motion.div>
             </motion.div>
 

@@ -11,7 +11,7 @@ const NewsContainer = ({ title, img, date, desc1, desc2, source }) => {
 
     const styles = {
         backBtn: {
-            position: 'absolute',
+            position: 'fixed',
             top: isMobile ? '10px' : '40px',
             left: isMobile ? '10px' : '40px',
             fontSize: '24px',
@@ -21,8 +21,8 @@ const NewsContainer = ({ title, img, date, desc1, desc2, source }) => {
             borderRadius: '50%',
             alignItems: 'center',
             justifyContent: 'center',
-            width: isMobile ? '50px' : '60px',
-            height: isMobile ? '50px' : '60px',
+            width: isMobile ? '40px' : '60px',
+            height: isMobile ? '40px' : '60px',
             backgroundColor: 'rgba(0, 0, 0)',
         },
     };
@@ -45,12 +45,13 @@ const NewsContainer = ({ title, img, date, desc1, desc2, source }) => {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
                     viewport={{ once: false, amount: 0.5 }}
+                    style={{paddingTop: "2rem"}}
                 >
                     <Typography variant="h3" style={{ marginBottom: '2rem', textAlign: 'center' }}>
                         {title}
                     </Typography>
                     <Typography variant="body1" sx={{ textAlign: 'center', paddingBottom: '1rem', color: "#5F6364" }}>
-                        {date} / 2mins read
+                        {date} | 2mins read
                     </Typography>
                 </motion.div>
 

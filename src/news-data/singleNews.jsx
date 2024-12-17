@@ -1,10 +1,19 @@
 import NewsImage from '../assets/news/news1.jpg';
+import PassedOn from '../assets/PNG/Passes.jpg';
 
-export const news = [
+
+export const latestNews = [
+    {
+        id: 1,
+        title: "Mary Naa Amanua Dodoo-Wulomei passes on",
+        date: "December 17, 2024",
+        img: PassedOn
+    },
+
     {
         title: 'LOGHA honours Naa Amanua',
         img: NewsImage,
-        date: '', 
+        date: 'November 15, 2024', 
         descriptions: [
             'LOVERS of High Life Music (LOGHA) have celebrated veteran Highlife musician, Mary Naa Amanua Dodoo popularly known as Naa Amanua for her unending and selfless work in the Ghanaian music industry.',
             'Naa Anamua was honoured at her home in Teshie-Nungua in Accra recently with a gold plaque, a citation, and an unspecified amount of money in appreciation for her works which have shaped the Ga culture and Ghana’s music at large.',
@@ -20,4 +29,7 @@ export const news = [
         ],
         source: 'https://www.graphic.com.gh/entertainment/showbiz-news/logha-honours-naa-amanua.html#google_vignette',
     },
-];
+]
+    
+
+   
