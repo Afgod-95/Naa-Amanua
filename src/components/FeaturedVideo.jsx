@@ -50,7 +50,7 @@ const FeaturedVideo = () => {
     marginBottom: '1rem',
     display: 'flex',
     flexDirection: 'column',
-    fontSize: isMobile ? '24px' : '32px',
+    fontSize: '20px',
   };
 
   return (
@@ -69,7 +69,7 @@ const FeaturedVideo = () => {
           </Typography>
 
           <div style={{ paddingLeft: isMobile ? '0' : '4rem' }}>
-            <Button text="Discover more Videos"
+            <Button text="See more Videos"
               onClick = { () => {
                 window.alert("More Videos")
               }}

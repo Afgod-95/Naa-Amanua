@@ -3,12 +3,10 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import { navCol } from '../constant/Colors';
 import { useMediaQuery } from 'react-responsive';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaInstagram } from "react-icons/fa";
-import { FaSquareFacebook } from "react-icons/fa6";
-import { IoLogoYoutube } from "react-icons/io";
+import { useNavigate } from 'react-router-dom';
 import GradientButton from '../components/GradientButton';
 import { Typography } from '@mui/material';
+import SocialLinks from './SocialLinks';
 
 export default function MobileNav({ open, setOpen }) {
     const toggleDrawer = (newOpen) => () => {
@@ -122,21 +120,10 @@ export default function MobileNav({ open, setOpen }) {
 
                 </div>
 
-                {/* SOCIAL LINKS */}
-                <div style={{ display: "flex", gap: ".5rem", alignItems: "center" }}>
-                    <Link to="" target="blank" className="icons">
-                        <FaInstagram size={24} />
-                    </Link>
-                    <Link className="icons">
-                        <FaSquareFacebook size={24} />
-                    </Link>
-                    <Link className="icons">
-                        <IoLogoYoutube size={24} style={{ fontSize: "30px" }} />
-                    </Link>
-                </div>
+               <SocialLinks />
 
                 <div>
-                    <GradientButton text={"News Letter"} onClick={() => scrollToSection("news-letter-signup", '/')} />
+                    <GradientButton text={"Donate Today"} onClick={() => alert("Donate Today")} />
                 </div>
 
             </div>

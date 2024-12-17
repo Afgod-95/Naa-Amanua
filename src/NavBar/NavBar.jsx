@@ -4,12 +4,12 @@ import { useMediaQuery } from 'react-responsive';
 import { motion } from 'framer-motion';
 import Logo from '../assets/PNG/logo.png';
 import MobileNav from '../components/MobileNav';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaInstagram } from "react-icons/fa";
-import { FaSquareFacebook } from "react-icons/fa6";
-import { IoLogoYoutube } from "react-icons/io";
+import {  useNavigate } from 'react-router-dom';
+
 import Button from '../components/GradientButton';
 import { Typography } from '@mui/material';
+import SocialLinks from '../components/SocialLinks';
+import mainLogo from '../assets/PNG/NAA_AMANUA.PNG'
 
 const NavBar = ({ children }) => {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -49,7 +49,7 @@ const NavBar = ({ children }) => {
     // Scroll to section
     const scrollToSection = (id, path) => {
       
-        if (['home', 'news', 'music', 'videos', 'foundation', 'news-letter-signup'].includes(id) && path) {
+        if (['home', 'news', 'music', 'videos', 'foundation'].includes(id) && path) {
            
             const element = document.getElementById(id);
             if (element) {
@@ -123,16 +123,17 @@ const NavBar = ({ children }) => {
                     justifyItems: 'center',
                     width: isMobile ? "90%" : "80%",
                     height: isMobile ? 50 : 100,
-                    margin: "0% auto",
+                    margin: "auto",
+                    
                 }}>
                     {/* LOGO */}
                     <div>
                         <img
-                            src={Logo}
-                            alt="Radical Herd Logo"
+                            src={mainLogo}
+                            alt="nAA AMANUA LOGO"
                             style={{
-                                width: isMobile ? 80 : 250,
-                                height: isMobile ? 80 : 195,
+                                width: "100%",
+                                height: isMobile ? 50 : 80,
                                 cursor: 'pointer'
                             }}
                             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -217,20 +218,10 @@ const NavBar = ({ children }) => {
                             </div>
 
                             {/* SOCIAL LINKS */}
-                            <div style={{ display: "flex", gap: ".5rem", alignItems: "center" }}>
-                                <Link to="" target="blank" className="icons">
-                                    <FaInstagram size={isMobile ? 24 : 30} />
-                                </Link>
-                                <Link className="icons">
-                                    <FaSquareFacebook size={isMobile ? 24 : 30} />
-                                </Link>
-                                <Link className="icons">
-                                    <IoLogoYoutube size={isMobile ? 24 : 35} style={{ fontSize: "30px" }} />
-                                </Link>
-                            </div>
+                           <SocialLinks />
 
                             <div>
-                                <Button text={"News Letter"} onClick={() => scrollToSection("news-letter-signup",'/')} />
+                                <Button text={"Donate Today"} onClick={() => alert("You clicked on donate today")} />
                             </div>
                         </div>
                     )}

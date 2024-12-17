@@ -29,7 +29,7 @@ const Home = () => {
 
 
     return (
-        <div style={{ width: "100%" }}>
+        <div style={{ width: "100%", overflowY: "hidden", overflowX: 'hidden' }}>
             <div className='image' id="home"
                 style={{
                     paddingTop: isMobile ? '0px' : isLaptop ? '100px' : '100px',
@@ -77,7 +77,7 @@ const Home = () => {
                             flexDirection: "column",
                             gap: isMobile ? "1rem" : "1.5rem",
                             alignItems: "center",
-                            justifyContent: "center",
+                            justifyContent: "flex-start",
                             width: isMobile ? "100%" : "80%",
                         }}
                     >
@@ -133,14 +133,6 @@ const Home = () => {
                             </Typography>
                         </motion.div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
-                            viewport={{ once: false, amount: 0.5 }}
-                            style={{ paddingBottom: "2rem" }}
-                        >
-                            <Button text={"Learn More"} width={"200px"} onClick = {() => navigate('/about')} />
-                        </motion.div>
                     </div>
                 </motion.div>
             </div>
@@ -155,21 +147,6 @@ const Home = () => {
 
             <FeaturedVideo />
             <Foundation />
-
-            <NewsLetter />
-
-
-
-
-
-
-
-
-
-
-
-
-
             <Footer />
         </div>
     );

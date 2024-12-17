@@ -15,8 +15,9 @@ const About = () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                     padding: '2rem',
-
                     backgroundColor: '#F5F5F5',
+                    height: '100vh',
+                    overflow: "hidden",
                 }}
             >
                 <motion.div
@@ -25,7 +26,7 @@ const About = () => {
                     viewport={{ once: false, amount: 0.5 }}
                 >
                     <Typography
-                        variant="h3"  // MUI's variant for the main heading (similar to h1)
+                        variant="h3"  
                         style={{
                             marginBottom: '2rem',
                             color: 'white',
@@ -86,6 +87,7 @@ const About = () => {
                             lineHeight: '1.8',
                             fontSize: '1.25rem',
                             textAlign: 'justify',
+                            marginBottom: '1.5rem',
                         }}
                     >
                         Naa Amanua later joined the Suku Troupe, whose debut album ‘Awo De Me’ became an instant hit. Her talents extended far beyond music as part of the Suku Troupe. They were a formidable force in theatre and dance, pushing boundaries.
@@ -104,6 +106,7 @@ const About = () => {
                             lineHeight: '1.8',
                             fontSize: '1.25rem',
                             textAlign: 'justify',
+                            marginBottom: '1.5rem',
                         }}
                     >
                         In 1978, the group embarked on an extensive West African tour, performing in Benin, Togo, Liberia, and Kenya. One of the highlights of their tour was a special performance for President Jomo Kenyatta in Kenya. Naa Amanua's passion for music has been the driving force behind her incredible journey. 

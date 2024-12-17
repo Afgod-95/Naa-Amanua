@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import GradientButton from './GradientButton';
+import FoundationLogo from '../assets/PNG/logo.png';
 import { motion } from 'framer-motion'; // Import motion for animations
 import { useMediaQuery } from 'react-responsive';
+import OutlinedButton from './OutlineButton';
 
 const Foundation = () => {
 
@@ -19,26 +21,6 @@ const Foundation = () => {
                 width: '100%',
             }}
         >
-            {/* Animate Mission Statement */}
-            <motion.div
-                initial={{ opacity: 0, y: -50 }}
-                whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
-                viewport={{ once: false, amount: 0.5 }}
-            >
-                <Typography
-                    variant="h3"
-                    component="h1"
-                    style={{
-                        marginBottom: '1.5rem',
-                        paddingTop: '1.5rem',
-                        color: '#333',
-                        textAlign: 'center',
-                        fontWeight: 'bold',
-                    }}
-                >
-                    Our Mission
-                </Typography>
-            </motion.div>
 
             {/* Animate the Box containing Image and Text */}
             <motion.div
@@ -49,10 +31,9 @@ const Foundation = () => {
                     display: 'flex',
                     gap: isMobile ? "" : "3rem",
                     justifyContent: "center",
-                    alignItems: 'flex-start',
+                    alignItems: 'center',
                     flexDirection: isMobile ? "column" : 'row',
                     width: '80%',
-                    marginBottom: '2rem',
                 }}
             >
                 {/* Animate Image Section */}
@@ -63,14 +44,11 @@ const Foundation = () => {
                 >
                     <Box
                         component="img"
-                        src="https://via.placeholder.com/600x400" 
-                        alt="Naa Amanua"
+                        src = {FoundationLogo}
+                        alt="Foundation logo"
                         style={{
                             width: '100%',
                             maxWidth: '600px',
-                            height: 'auto',
-                            borderRadius: '10px',
-                            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
                         }}
                     />
                 </motion.div>
@@ -96,7 +74,18 @@ const Foundation = () => {
                         Our mission is to preserve Naa Amanua's music heritage for future generations and educate and train young girls and boys to develop music playing and singing skills.
                     </Typography>
                     {/* Animate Donate Button */}
-                    <GradientButton text="Donate Today" width= {"250px"} />
+                    <div 
+                        style = {{
+                            display: 'flex',
+                            justifyContent: 'flex-start',
+                            flexDirection: isMobile ? 'column' : '',
+                            gap: "1rem"
+                        }}
+                    >
+                        <OutlinedButton text="Learn more" width= {"250px"}/>
+                        <GradientButton text="Donate Today" width= {"250px"} />
+                    </div>
+                  
                 </motion.div>
             </motion.div>
         </div>

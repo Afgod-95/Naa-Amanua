@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import NavBar from "./NavBar/NavBar";
 import Home from "./pages/Home";
-import Logo from "../src/assets/PNG/logo.png";
+import Logo from "../src/assets/PNG/NAA_AMANUA.png";
 import { motion } from "framer-motion";
-import { Typography } from "@mui/material";
 import { Routes, Route, useLocation } from "react-router-dom";
 import About from "./pages/About";
+import News from "./pages/News";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   const location = useLocation();
-  const validPaths = ['/',]
+  const validPaths = ['/', '/about']
 
   //show nav bar
   const showNavBar = validPaths.includes(location.pathname);
@@ -72,10 +72,11 @@ function App() {
         <PageLoading />
       ) : (
         <>
-         <NavBar />
+         {showNavBar && <NavBar />}
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/about" element={<About />} />
+            <Route exact path="/news" element={<News />} />
           </Routes>
         </>
       )}

@@ -39,7 +39,7 @@ const GreatestHits = () => {
                     whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
                     viewport={{ once: false, amount: 0.5 }}
                 >
-                    <Typography variant="h4" style={{ display: "flex", flexDirection: "column" }}>
+                    <Typography variant="h4" style={{ display: "flex", fontSize: "20px", flexDirection: "column" }}>
                         Greatest
                         <span style={{ fontWeight: "bold", fontSize: "5rem" }}> Hits</span>
                     </Typography>

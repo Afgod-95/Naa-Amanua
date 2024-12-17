@@ -5,7 +5,7 @@ import { FaInstagram } from "react-icons/fa";
 import { useMediaQuery } from 'react-responsive';
 import { FaSquareFacebook } from "react-icons/fa6";
 import { IoLogoYoutube } from "react-icons/io";
-import Logo from "../assets/PNG/logo.png";
+import Logo from "../assets/PNG/NAA_AMANUA.png";
 import { Typography } from '@mui/material'; // Import Typography from MUI
 
 
@@ -46,19 +46,19 @@ const Footer = () => {
             {isMobile || isTablet ? (
 
                 <div
-                    style={{padding: "1rem", display: "flex", flexDirection: "column", gap: "-5rem"}}
+                    style={{ padding: "1rem", display: "flex", flexDirection: "column", gap: "3rem" }}
                 >
                     <div style={{
                         textAlign: "center",
                     }}>
                         <Link to="">
-                            <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Terms of Service</Typography>
+                            <Typography variant="h6" style={{ cursor: "pointer", color: "#000", fontSize: "12px" }}>Terms of Service</Typography>
                         </Link>
                         <Link to="">
-                            <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Privacy Policy</Typography>
+                            <Typography variant="h6" style={{ cursor: "pointer", color: "#000", fontSize: "12px" }}>Privacy Policy</Typography>
                         </Link>
                         <Link to="">
-                            <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Contact</Typography>
+                            <Typography variant="h6" style={{ cursor: "pointer", color: "#000", fontSize: "12px" }}>Contact</Typography>
                         </Link>
                     </div>
 
@@ -66,7 +66,7 @@ const Footer = () => {
                     <div style={{
                         display: 'flex',
                         flexWrap: 'wrap',
-                        gap: "2rem",
+                        gap: "3rem",
                         alignItems: 'center',
                         justifyContent: 'center',
                     }}>
@@ -74,8 +74,8 @@ const Footer = () => {
                         <motion.div variants={variants.logo}>
                             <img src={Logo} alt="Logo"
                                 style={{
-                                    width: "250px",
-                                    height: "180px",
+                                    width: "100%",
+                                    height: "50px",
                                 }}
                             />
                         </motion.div>
@@ -95,28 +95,28 @@ const Footer = () => {
                             </Link>
                         </motion.div>
 
-                       
+
                     </div>
 
-                     {/* Copyright section with animation */}
-                     <motion.div variants={variants.copyright}>
-                            <Typography variant="body2" style={{ color: "#000", textAlign: "center", fontSize: isMobile ? "14px" : "15px" }}>
-                                © 2025 Naa Amanua. All rights reserved.
-                            </Typography>
-                        </motion.div>
+                    {/* Copyright section with animation */}
+                    <motion.div variants={variants.copyright}>
+                        <Typography variant="body2" style={{ color: "#000", textAlign: "center", fontSize: isMobile ? "14px" : "15px" }}>
+                            © 2025 Naa Amanua. All rights reserved.
+                        </Typography>
+                    </motion.div>
 
 
                 </div>
 
             ) : (
-                
+
                 <motion.div
 
                     style={{
                         marginTop: "2rem",
                         margin: "5% auto",
                         width: isMobile ? "90%" : '80%',
-                        
+
                     }}
                     variants={variants.section3}
                     initial="hidden"
@@ -134,8 +134,9 @@ const Footer = () => {
                         <motion.div variants={variants.logo}>
                             <img src={Logo} alt="Logo"
                                 style={{
-                                    width: "300px",
-                                    height: "200px",
+                                    width: "100%",
+                                    height: "50px",
+                                    objectFit: "contain"
                                 }}
                             />
                         </motion.div>
@@ -156,24 +157,24 @@ const Footer = () => {
                                 display: 'flex',
                                 justifyContent: "center",
                                 alignContent: "center",
-                                gap: '1rem',
+                                gap: '2rem',
                                 width: '100%',
                                 marginTop: '2rem',
                             }}>
                                 <Link to="">
-                                    <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Terms of Service</Typography>
+                                    <Typography variant="h6" style={{ cursor: "pointer", color: "#000", fontSize: "12px" }}>Terms of Service</Typography>
                                 </Link>
                                 <Link to="">
-                                    <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Privacy Policy</Typography>
+                                    <Typography variant="h6" style={{ cursor: "pointer", color: "#000", fontSize: "12px" }}>Privacy Policy</Typography>
                                 </Link>
                                 <Link to="">
-                                    <Typography variant="h6" style={{ cursor: "pointer", color: "#000" }}>Contact</Typography>
+                                    <Typography variant="h6" style={{ cursor: "pointer", color: "#000", fontSize: "12px" }}>Contact</Typography>
                                 </Link>
                             </div>
 
                             {/* Copyright section with animation */}
                             <motion.div variants={variants.copyright}>
-                                <Typography variant="body2" style={{ color: "#000", textAlign: "center", fontSize: isMobile ? "14px" : "15px" }}>
+                                <Typography variant="body2" style={{ color: "#000", textAlign: "center", fontSize: isMobile ? "11px" : "12px" }}>
                                     © 2025 Naa Amanua. All rights reserved.
                                 </Typography>
                             </motion.div>
@@ -184,21 +185,21 @@ const Footer = () => {
                             style={{ display: "flex", gap: ".5rem", alignItems: "center" }}
                             variants={variants.socialIcons}
                         >
-                            <Link to="https://www.instagram.com/radicalherdproductions/?hl=en" target='blank' className='info'>
-                                <FaInstagram size={isMobile ? 24 : 30} />
+                            <Link to="https://www.instagram.com/naaamanuawulomei?igsh=MXh1dWtsZjBjNHB4aw==" target='blank' className='info'>
+                                <FaInstagram size={isMobile ? 20 : 24} />
                             </Link>
-                            <Link className='info'>
-                                <FaSquareFacebook size={isMobile ? 24 : 30} />
+                            <Link to="https://www.facebook.com/share/195MwiuQPb/?mibextid=LQQJ4d" target='blank' className='info'>
+                                <FaSquareFacebook size={isMobile ? 20 : 24} />
                             </Link>
-                            <Link className='info'>
-                                <IoLogoYoutube size={isMobile ? 24 : 35} style={{ fontSize: "30px" }} />
+                            <Link to="https://youtube.com/@naaamanuadodoo?si=7ape5-zghzpQokN2" target='blank' className='info'>
+                                <IoLogoYoutube size={isMobile ? 20 : 28} style={{ fontSize: "30px" }} />
                             </Link>
                         </motion.div>
                     </div>
-                    </motion.div>
+                </motion.div>
 
-                )}
-              
+            )}
+
         </>
     );
 }

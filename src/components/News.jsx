@@ -1,14 +1,27 @@
 import React from 'react';
-import AwardImage from '../assets/PNG/award.png';
+import VGMA from '../assets/PNG/VGMA.png';
+import LOGHA from '../assets/PNG/LOGHA.png'
+import HOMOWO from '../assets/PNG/HOMOWO.png'
 import GradientButton from './GradientButton';
 import { Typography } from '@mui/material'; // Typography added for replacement
 import { motion } from 'framer-motion'; // Import motion for animations
 import { useMediaQuery } from 'react-responsive';
 import OutlinedButton from './OutlineButton';
+import { useNavigate } from 'react-router-dom';
+import { getFormattedDate } from '../constant/FormatDate';
 
 const News = () => {
     // Mobile media query
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+    
+    const navigate = useNavigate();
+
+    //awards
+    const awardImages = [
+        VGMA,
+        LOGHA,
+        HOMOWO,
+    ]
 
     return (
         <div
@@ -39,15 +52,15 @@ const News = () => {
                         whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
                         viewport={{ once: false, amount: 0.5 }}
                     >
-                        {[...Array(3)].map((_, index) => (
+                        {awardImages.map((_, index) => (
                             <motion.img
                                 key={index}
-                                src={AwardImage}
+                                src={awardImages[index]}
                                 alt=""
                                 style={{
                                     width: '100px',
                                     height: '100px',
-                                    objectFit: 'cover',
+                                    objectFit: 'contain',
                                 }}
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 whileInView={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
@@ -80,11 +93,25 @@ const News = () => {
                                 display: 'flex',
                                 flexDirection: 'column',
                                 textAlign: 'center',
+                                fontSize: '18px',
                             }}
                         >
                             Latest
                             <span style={{ fontSize: '3rem' }}>News</span>
                         </Typography>
+                        
+                        <Typography
+                            style={{
+                                width: '100%',
+                                fontSize: '1.2rem',
+                                color: '#fff',
+                                fontWeight: '100',
+                                color: '#d1d1d1'
+                            }}
+                        >
+                            {getFormattedDate}
+                        </Typography>
+
                         <Typography
                             style={{
                                 width: '100%',
@@ -112,7 +139,7 @@ const News = () => {
                             whileInView={{ opacity: 1, transition: { duration: 1 } }}
                             viewport={{ once: false, amount: 0.5 }}
                         >
-                            <OutlinedButton text={'Read more'} width={'80%'} />
+                            <OutlinedButton text={'Read more'} width={'80%'} onClick = {() => navigate({ to: '/news' })} />
                             <GradientButton text={'See All News'} width={'80%'} />
                         </motion.div>
                     </motion.div>
@@ -122,6 +149,7 @@ const News = () => {
                     style={{
                         display: "flex",
                         alignContent: "center",
+                        gap: '3rem',
                         width: "80%",
                         margin: "0% auto",
                         padding: "2rem"
@@ -140,15 +168,15 @@ const News = () => {
                         whileInView={{ opacity: 1, y: 0, transition: { duration: 1 } }}
                         viewport={{ once: false, amount: 0.5 }}
                     >
-                        {[...Array(3)].map((_, index) => (
+                        {awardImages.map((_, index) => (
                             <motion.img
                                 key={index}
-                                src={AwardImage}
+                                src={awardImages[index]}
                                 alt=""
                                 style={{
                                     width: '200px',
                                     height: '200px',
-                                    objectFit: 'cover',
+                                    objectFit: 'contain',
                                 }}
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 whileInView={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
@@ -162,11 +190,9 @@ const News = () => {
                         style={{
                             width: '50%',
                             margin: '0',
-                            textAlign: 'center',
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'center',
-                            alignItems: 'center',
                             gap: '1rem',
                         }}
                         initial={{ opacity: 0, x: 50 }}
@@ -180,17 +206,29 @@ const News = () => {
                                 textTransform: 'capitalize',
                                 display: 'flex',
                                 flexDirection: 'column',
-                                textAlign: 'center',
+                                fontSize: '25px',
                             }}
                         >
                             Latest
                             <span style={{ fontSize: '3rem' }}>News</span>
                         </Typography>
+                        
+                        <Typography
+                            style={{
+                                width: '100%',
+                                fontSize: '1.2rem',
+                                color: '#fff',
+                                fontWeight: '100',
+                                color: '#808080'
+                            }}
+                        >
+                            {getFormattedDate}
+                        </Typography>
                         <Typography
                             style={{
                                 width: '100%',
                                 maxWidth: '70%',
-                                textAlign: 'center',
+                                textAlign: 'left',
                                 fontSize: '1.2rem',
                                 color: '#fff',
                             }}
@@ -203,7 +241,7 @@ const News = () => {
                             style={{
                                 display: 'flex',
                                 flexDirection: 'row',
-                                justifyContent: 'center',
+                                justifyContent: 'flex-start',
                                 alignItems: 'center',
                                 gap: '1rem',
                                 width: 'auto',
@@ -212,7 +250,7 @@ const News = () => {
                             whileInView={{ opacity: 1, transition: { duration: 1 } }}
                             viewport={{ once: false, amount: 0.5 }}
                         >
-                            <OutlinedButton text={'Read More'} width={'200px'} />
+                            <OutlinedButton text={'Read More'} width={'200px'} onClick={() => navigate('/news')}/>
                             <GradientButton text={'See All News'} width={'200px'} />
                         </motion.div>
                     </motion.div>
