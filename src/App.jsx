@@ -62,7 +62,7 @@ function App() {
           repeatType: "loop",
         }}
       />
-      <Typography variant = 'body1' style={{color: "#000"}}>Please wait while we load the page...</Typography>
+      <Typography variant = 'body1' style={{color: "#000", textAlign: "center", marginTop: "1rem"}}>Please wait while we load the page...</Typography>
     </motion.div>
   );
 
