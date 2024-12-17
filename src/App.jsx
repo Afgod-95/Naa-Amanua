@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Typography } from "@mui/material";
 import AllNews from "./pages/AllNews.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 const Home = React.lazy(() => import("./pages/Home.jsx"));
 const About = React.lazy(() => import("./pages/About.jsx"));
@@ -82,6 +83,7 @@ function App() {
               <Route exact path="/about" element={<About />} />
               <Route exact path="/news" element={<News />} />
               <Route exact path = '/news/all' element = { <AllNews /> } />
+              <Route exact path = "*" element = {<NotFoundPage />} /> 
             </Routes>
           </Suspense>
         </>

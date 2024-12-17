@@ -6,8 +6,8 @@ import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
 import GradientButton from '../components/GradientButton';
 import { Typography } from '@mui/material';
-import SocialLinks from './SocialLinks';
-import DonateToday from './DonateToday';
+import SocialLinks from '../components/SocialLinks';
+import DonateToday from '../components/DonateToday';
 
 export default function MobileNav({ open, setOpen }) {
     const toggleDrawer = (newOpen) => () => {

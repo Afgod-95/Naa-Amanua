@@ -1,6 +1,5 @@
-import NewsImage from '../assets/news/news1.jpg';
-import PassedOn from '../assets/PNG/Passes.jpg';
-
+import NewsImage from '../../assets/news/news1.jpg';
+import PassedOn from '../../assets/PNG/Passes.jpg';
 
 export const latestNews = [
     {

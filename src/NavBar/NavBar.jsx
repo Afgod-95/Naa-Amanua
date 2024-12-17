@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { navCol } from '../utils/Colors';
 import { useMediaQuery } from 'react-responsive';
 import { motion } from 'framer-motion';
-import MobileNav from '../components/MobileNav';
+import MobileNav from './MobileNav';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../components/GradientButton';

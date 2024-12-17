@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NewsContainer from '../components/NewsContainer';
-import { latestNews } from '../news-data/singleNews';
+import { latestNews } from '../utils/news-data/singleNews';
 import GradientButton from '../components/GradientButton';
 import Footer from '../components/Footer';
 import { Typography, Box, Pagination } from '@mui/material';
