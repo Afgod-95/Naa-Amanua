@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './GradientButton';
+import Button from '../buttons/GradientButton.jsx';
 import { useMediaQuery } from 'react-responsive';
 import { Skeleton, Typography } from '@mui/material'; 
 import { motion } from 'framer-motion'; 

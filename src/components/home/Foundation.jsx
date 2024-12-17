@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 
-import GradientButton from './GradientButton';
-import FoundationLogo from '../assets/PNG/logo.png';
+import GradientButton from '../buttons/GradientButton.jsx';
+import FoundationLogo from '../../assets/PNG/logo.png';
 import { motion } from 'framer-motion'; // Import motion for animations
 import { useMediaQuery } from 'react-responsive';
-import OutlinedButton from './OutlineButton';
-import DonateToday from './DonateToday';
+import OutlinedButton from  '../buttons/OutlineButton.jsx';
+import DonateToday from '../modal/DonateToday.jsx';
 
 const Foundation = () => {
 

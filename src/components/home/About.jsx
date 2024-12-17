@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import GradientButton from './GradientButton';
+import GradientButton from '../buttons/GradientButton.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const About = () => {

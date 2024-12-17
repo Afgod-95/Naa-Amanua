@@ -1,8 +1,8 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import GradientButton from '../components/GradientButton';
-import Footer from '../components/Footer';
+import GradientButton from '../components/buttons/GradientButton';
+import Footer from '../components/Footer.jsx';
 
 const About = () => {
     return (

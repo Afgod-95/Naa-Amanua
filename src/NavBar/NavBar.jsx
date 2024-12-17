@@ -5,11 +5,11 @@ import { motion } from 'framer-motion';
 import MobileNav from './MobileNav';
 import { useNavigate } from 'react-router-dom';
 
-import Button from '../components/GradientButton';
+import Button from '../components/buttons/GradientButton';
 import { Typography } from '@mui/material';
 import SocialLinks from '../components/SocialLinks';
 import mainLogo from '../assets/PNG/NAA_AMANUA.png'
-import DonateToday from '../components/DonateToday';
+import DonateToday from '../components/modal/DonateToday.jsx';
 
 const NavBar = ({ children }) => {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });

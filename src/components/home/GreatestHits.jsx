@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion'; // Import motion for animations
-import Button from './GradientButton';
+import Button from '../buttons/GradientButton';
 import { Typography } from '@mui/material';
-import Carousel from './Carousel'; 
+import Carousel from '../Carousel'; 
 import { useMediaQuery } from 'react-responsive';
 
 const GreatestHits = () => {

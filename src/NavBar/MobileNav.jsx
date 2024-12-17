@@ -4,10 +4,10 @@ import Drawer from '@mui/material/Drawer';
 import { navCol } from '../utils/Colors';
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
-import GradientButton from '../components/GradientButton';
+import GradientButton from '../components/buttons/GradientButton.jsx';
 import { Typography } from '@mui/material';
 import SocialLinks from '../components/SocialLinks';
-import DonateToday from '../components/DonateToday';
+import DonateToday from '../components/modal/DonateToday.jsx';
 
 export default function MobileNav({ open, setOpen }) {
     const toggleDrawer = (newOpen) => () => {

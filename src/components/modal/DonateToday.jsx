@@ -1,11 +1,10 @@
 import React from 'react';
 import { Typography, Box, Button, Grid, Modal } from '@mui/material';
 import { motion } from 'framer-motion';
-import GradientButton from './GradientButton';
+import GradientButton from '../buttons/GradientButton.jsx';
 
 const DonateToday = ({ open, onClose }) => {
     const phoneNumber = "24 403 8547";
-    const mtnMomoLink = `tel:${phoneNumber}`;
     const imageUrl = 'https://citinewsroom.com/wp-content/uploads/2020/03/MTN-Momo-e1584721116128.jpeg'; // Replace with the actual image URL
 
 

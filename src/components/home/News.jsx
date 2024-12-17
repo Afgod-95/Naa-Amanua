@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import VGMA from '../assets/PNG/VGMA.png';
-import LOGHA from '../assets/PNG/LOGHA.png'
-import HOMOWO from '../assets/PNG/HOMOWO.png'
-import GradientButton from './GradientButton';
+import VGMA from '../../assets/PNG/VGMA.png';
+import LOGHA from '../../assets/PNG/LOGHA.png'
+import HOMOWO from '../../assets/PNG/HOMOWO.png'
+import GradientButton from '../buttons/GradientButton';
 import { Typography } from '@mui/material'; // Typography added for replacement
 import { motion } from 'framer-motion'; // Import motion for animations
 import { useMediaQuery } from 'react-responsive';
-import OutlinedButton from './OutlineButton';
+import OutlinedButton from '../buttons/OutlineButton';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { latestNews } from '../utils/news-data/singleNews';
+import { latestNews } from '../../utils/news-data/singleNews';
 
 const News = () => {
     // Mobile media query

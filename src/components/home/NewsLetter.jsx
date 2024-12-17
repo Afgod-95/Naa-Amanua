@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import GradientButton from './GradientButton';
+import GradientButton from '../buttons/GradientButton.jsx';
 import { TextField, Box, Typography } from '@mui/material';
 import { useMediaQuery } from 'react-responsive';
 

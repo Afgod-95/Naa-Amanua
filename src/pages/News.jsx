@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer.jsx';
 import { Typography } from '@mui/material';
 import { useLocation } from 'react-router-dom';
-import NewsContainer from '../components/NewsContainer';
+import NewsContainer from '../components/news/NewsContainer.jsx';
 import { motion } from 'framer-motion';
 
 const News = () => {

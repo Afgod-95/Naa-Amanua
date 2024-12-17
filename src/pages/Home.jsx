@@ -1,15 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';  // Importing motion from framer-motion
 import Picture from '../assets/PNG/picture.png';
-import Button from '../components/GradientButton';
 import { goldText } from '../utils/Colors';
-import News from '../components/News';
-import GreatestHits from '../components/GreatestHits';
-import FeaturedVideo from '../components/FeaturedVideo';
-import NewsLetter from '../components/NewsLetter';
-import About from '../components/About';
-import Footer from '../components/Footer';
-import Foundation from '../components/Foundation';
+import News from '../components/home/News.jsx';
+import GreatestHits from '../components/home/GreatestHits.jsx';
+import FeaturedVideo from '../components/home/FeaturedVideo.jsx';
+import About from '../components/home/About.jsx';
+import Footer from '../components/Footer.jsx';
+import Foundation from '../components/home/Foundation.jsx';
 import { Typography } from '@mui/material';  // Importing Typography component
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
