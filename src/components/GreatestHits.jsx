@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion'; // Import motion for animations
 import Button from './GradientButton';
 import { Typography } from '@mui/material';
-import Carousel from './Carousel';  // Assuming this component supports swipe gestures
-import AwardImage from '../assets/PNG/award.png';
+import Carousel from './Carousel'; 
 import { useMediaQuery } from 'react-responsive';
 
 const GreatestHits = () => {
