@@ -8,7 +8,7 @@ import {  useNavigate } from 'react-router-dom';
 import Button from '../components/GradientButton';
 import { Typography } from '@mui/material';
 import SocialLinks from '../components/SocialLinks';
-import mainLogo from '../assets/PNG/NAA_AMANUA.PNG'
+import mainLogo from '../assets/PNG/NAA_AMANUA.png'
 
 const NavBar = ({ children }) => {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
