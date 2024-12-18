@@ -3,7 +3,6 @@ import path from 'path';
 import express from 'express';
 import { fileURLToPath } from 'url';
 import { createServer as createViteServer } from 'vite';
-import { render } from './src/entry-server';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,10 +33,13 @@ async function createServer() {
       // 2. Transform the template with Vite
       template = await vite.transformIndexHtml(url, template);
 
-      // 3. Load the server entry
-      const { render } = await vite.ssrLoadModule('/src/entry-server.js');
+      // 3. Load the server entry and handle the render function
+      const { default: render } = await vite.ssrLoadModule('/src/entry-server.jsx');
 
-      
+      if (!render) {
+        throw new Error('Render function not found in entry-server.jsx');
+      }
+
       // 4. Render the application
       const appHtml = await render(url);
 

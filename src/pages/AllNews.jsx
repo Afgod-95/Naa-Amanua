@@ -78,11 +78,7 @@ const AllNews = () => {
                     left: '50%',       
                     transform: 'translateX(-50%)', 
                     zIndex: 10,     
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
                     margin: '20px 0',
-                    maxWidth: '80vw', // 80% of the viewport width
                     flexWrap: 'nowrap', // Prevents any flex wrapping
                     background: 'rgba(255, 255, 255, 0.3)', // Semi-transparent background for the glass effect
                     padding: '10px',    

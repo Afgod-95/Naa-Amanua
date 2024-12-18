@@ -124,7 +124,6 @@ const News = () => {
                                 fontSize: '1.2rem',
                                 color: '#fff',
                                 fontWeight: '200',
-                                color: 'white'
                             }}
                         >
                            {selectedNews.date }
@@ -238,7 +237,6 @@ const News = () => {
                                 fontSize: '12px',
                                 color: '#fff',
                                 fontWeight: '200',
-                                color: 'white'
                             }}
                         >
                            {latestNews[0].date}
