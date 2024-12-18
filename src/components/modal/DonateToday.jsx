@@ -1,21 +1,23 @@
 import React from 'react';
-import { Typography, Box, Button, Grid, Modal } from '@mui/material';
+import { Typography, Box, Modal, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
 import GradientButton from '../buttons/GradientButton.jsx';
+import OutlinedButton from '../buttons/OutlineButton.jsx';
 
 const DonateToday = ({ open, onClose }) => {
-    const phoneNumber = "24 403 8547";
-    const imageUrl = 'https://citinewsroom.com/wp-content/uploads/2020/03/MTN-Momo-e1584721116128.jpeg'; // Replace with the actual image URL
+    const email = "dnaaamanua@gmail.com";
 
-
+    // Use media query to determine screen size
+    const isLargeScreen = useMediaQuery('(min-width:768px)');
+    const isSmallScreen = useMediaQuery('(max-width:767px)');
 
     return (
         <Modal
             open={open}
             onClose={onClose}
             aria-labelledby="donate-today-title"
-            BackdropProps={{
-                onClick: onClose, // Close modal on outside click
+            slotProps={{
+                onClick: onClose,
                 style: { cursor: 'pointer' },
             }}
         >
@@ -33,72 +35,122 @@ const DonateToday = ({ open, onClose }) => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     minHeight: '100vh',
+                    padding: '10px',
                 }}
             >
                 <Box
                     sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 3,
+                        justifyContent: 'center',
+                        alignItems: 'center',
                         padding: '20px',
-                        borderRadius: '8px',
-                        border: '1px solid #ccc',
-                        backgroundColor: '#fff',
-                        textAlign: 'center',
-                        maxWidth: '600px',
+                        width: '90%',
+                        maxWidth: '900px',
                         margin: '0 auto',
-                        boxShadow: 3,
-                        position: 'relative',
+                        borderRadius: '10px',
+                        backgroundColor: '#f9f9f9',
+                        boxShadow: 4,
+                        overflow: 'hidden', // Prevent content from overflowing
                     }}
                 >
-                    {/* Content */}
-                    <Grid container spacing={2} alignItems="center" justifyContent="center">
-                        {/* Image Section */}
-                        <Grid item xs={12}>
-                            <img
-                                src={imageUrl}
-                                alt="Mary Naa Amanua Dodoo"
-                                style={{
-                                    width: '100%',
-                                    maxWidth: '200px',
-                                    height: 'auto',
-                                    borderRadius: '10%',
-                                    marginBottom: '20px',
-                                }}
-                            />
-                        </Grid>
-
-                        {/* Text Section */}
-                        <Grid item xs={12}>
-                            <Typography variant="h6" style={{ marginBottom: '10px' }}>
-                                Support via MTN Mobile Money
-                            </Typography>
-
-                            <Typography variant="h5" color="textSecondary" style={{ marginBottom: '10px', fontSize: '16px' }}>
-                                <a href= {`tel:${phoneNumber}`} style={{color: '#000'}} > +233 {phoneNumber}</a>
-                            </Typography>
-
-                            <Typography variant="h5" color="textSecondary" style={{ marginBottom: '10px', fontSize: '16px' }}>
-                                Mary Naa Amanua Dodoo
-                            </Typography>
-
-                                <GradientButton text = "Thank you for supporting us" width='50%' />
-
-
-                        </Grid>
-                    </Grid>
-
-                    {/* Close Button */}
-                    <Button
-                        onClick={onClose}
-                        variant="text"
-                        color="error"
+                    <Box
                         sx={{
-                            position: 'absolute',
-                            top: 10,
-                            right: 10,
-                            textTransform: 'none',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 3,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            overflowY: 'auto', // Add scrolling only if content overflows
+                            maxHeight: '75vh', // Limit the height to avoid overflow on smaller screens
+                            width: '100%',
                         }}
                     >
-                        Close
-                    </Button>
+                        {/* Content Boxes */}
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: isLargeScreen ? 'row' : 'column',
+                                gap: 2,
+                                paddingTop: isSmallScreen ? '8rem' : '',
+                                flexWrap: 'wrap',
+                                scrollBehavior: 'smooth',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                width: '100%',
+                            }}
+                        >
+                            {/* Reusable box styling */}
+                            {[
+                                {
+                                    title: "Strengthening Legacy Support",
+                                    content:
+                                        "Your donation helps us preserve the rich musical legacy of Naa Amanua for years to come.",
+                                },
+                                {
+                                    title: "Building Foundation Support",
+                                    content:
+                                        "Your donation helps us nurture young girls and boys with the skills and training they need to thrive in music.",
+                                },
+                                {
+                                    title: "The Power of Love Support",
+                                    content:
+                                        "Your donation helps appreciate and support the unsung heroes of our industry – the ailing and aged creative.",
+                                },
+                                {
+                                    title: "Contact Us",
+                                    content: (
+                                        <>
+                                            Got a project or questions on your own mind?
+                                            <br />
+                                            <a
+                                                href={`mailto:${email}`}
+                                                style={{ color: '#000', textDecoration: 'none' }}
+                                            >
+                                                {email}
+                                            </a>
+                                        </>
+                                    ),
+                                },
+                            ].map((box, index) => (
+                                <Box
+                                    key={index}
+                                    sx={{
+                                        padding: '20px',
+                                        borderRadius: '8px',
+                                        backgroundColor: '#fff',
+                                        border: '1px solid gray',
+                                        textAlign: 'center',
+                                        flex: '1 1 calc(33% - 16px)',
+                                        minWidth: '250px',
+                                    }}
+                                >
+                                    <Typography variant="h6" sx={{ marginBottom: '10px' }}>
+                                        {box.title}
+                                    </Typography>
+                                    <Typography variant="body1" sx={{ color: 'text.secondary' }}>
+                                        {box.content}
+                                    </Typography>
+                                </Box>
+                            ))}
+                        </Box>
+                    </Box>
+
+                    {/* Buttons */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            gap: 2,
+                            flexWrap: 'wrap',
+                            width: '100%',
+                        }}
+                    >
+                        <OutlinedButton text="Close" onClick={onClose} />
+                        <GradientButton text="Donate to Naa Amanua Foundation" />
+                    </Box>
                 </Box>
             </motion.div>
         </Modal>

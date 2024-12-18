@@ -16,7 +16,7 @@ const About = () => {
                     alignItems: 'center',
                     padding: '2rem',
                     backgroundColor: '#F5F5F5',
-                    height: '100vh',
+                    minHeight: '100vh',
                     overflow: "hidden",
                 }}
             >

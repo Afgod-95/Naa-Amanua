@@ -91,7 +91,7 @@ const NewsContainer = ({ title, img, date, desc1, desc2, source }) => {
                 <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }}>
                     <Typography variant="body1" style={{ color: 'blue', fontSize: '12px' }}>
 
-                        {source}
+                       <span style={{color: "#5F6364", textTransform: 'capitalize'}}>Source:</span> {source}
 
                     </Typography>
                 </motion.div>

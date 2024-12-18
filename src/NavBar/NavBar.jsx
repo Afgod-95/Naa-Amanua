@@ -117,6 +117,10 @@ const NavBar = ({ children }) => {
                     zIndex: 100,
                     width: "100%",
                     height: isMobile ? 70 : 100,
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    justifyItems: 'center',
 
                 }}
             >
@@ -154,6 +158,8 @@ const NavBar = ({ children }) => {
                                 flexDirection: "column",
                                 justifyContent: "center",
                                 alignContent: "center",
+                                marginTop: 'auto',
+                                marginBottom: 'auto',
                                 gap: "1rem",
                                 cursor: "pointer",
                             }}
