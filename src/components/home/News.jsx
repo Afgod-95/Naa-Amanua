@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'; // Import motion for animations
 import { useMediaQuery } from 'react-responsive';
 import OutlinedButton from '../buttons/OutlineButton';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { latestNews } from '../../utils/news-data/singleNews';
+import { latestNews } from '../../utils/news-data/news';
 
 const News = () => {
     // Mobile media query

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NewsContainer from '../components/news/NewsContainer.jsx';
-import { latestNews } from '../utils/news-data/singleNews';
+import { latestNews } from '../utils/news-data/news.jsx';
 import GradientButton from '../components/buttons/GradientButton.jsx';
 import Footer from '../components/Footer';
 import { Typography, Box, Pagination } from '@mui/material';
@@ -59,37 +59,40 @@ const AllNews = () => {
                         title={news?.title}
                         img={news?.img || 'default-image-url.jpg'}
                         date={news?.date}
-                        desc1={
-                            firstDescription ? (
-                                <b style={{ color: 'black' }}>{firstDescription}</b>
-                            ) : null
-                        }
-                        desc2={
-                            remainingDescriptions.length > 0
-                                ? remainingDescriptions.map((desc, i) => (
-                                    <Typography
-                                        key={i}
-                                        style={{ marginBottom: '1rem', color: 'black' }}
-                                    >
-                                        {desc}
-                                    </Typography>
-                                ))
-                                : null
-                        }
+                        desc1={firstDescription ? <b style={{ color: 'black' }}>{firstDescription}</b> : null}
+                        desc2={remainingDescriptions.length > 0 ? remainingDescriptions.map((desc, i) => (
+                            <Typography key={i} style={{ marginBottom: '1rem', color: 'black' }}>
+                                {desc}
+                            </Typography>
+                        )) : null}
                         source={news.source || 'Unknown Source'}
                     />
                 );
             })}
 
-
             {/* Pagination */}
             <Box
                 sx={{
+                    position: 'fixed', 
+                    bottom: 10,       
+                    left: '50%',       
+                    transform: 'translateX(-50%)', 
+                    zIndex: 10,     
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
                     margin: '20px 0',
+                    maxWidth: '80vw', // 80% of the viewport width
+                    flexWrap: 'nowrap', // Prevents any flex wrapping
+                    background: 'rgba(255, 255, 255, 0.3)', // Semi-transparent background for the glass effect
+                    padding: '10px',    
+                    borderRadius: '8px',
+                    backdropFilter: 'blur(5px)', // Increased blur for a more pronounced glass effect
+                    border: '1px solid rgba(255, 255, 255, 0.2)', // Soft white border to enhance the glass effect
+                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
                 }}
+                
+                
             >
                 <Pagination
                     count={totalPages}
