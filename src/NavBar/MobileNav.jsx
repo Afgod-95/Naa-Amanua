@@ -142,7 +142,7 @@ export default function MobileNav({ open, setOpen }) {
             onClose={toggleDrawer(false)}
             PaperProps={{
                 sx: {
-                    width: isSmallMob ? "65%" : isTablet ? "20%" : "55%"
+                    width: isSmallMob ? "65%" : isTablet ? "40%" : "55%"
                 },
             }}
         >

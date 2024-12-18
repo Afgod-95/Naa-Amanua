@@ -116,7 +116,7 @@ const NavBar = ({ children }) => {
                     left: 0,
                     zIndex: 100,
                     width: "100%",
-                    height: isMobile ? 50 : 100,
+                    height: isMobile ? 70 : 100,
 
                 }}
             >
