@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -7,19 +7,22 @@ import { FaChevronRight, FaChevronLeft } from 'react-icons/fa6';
 import { useMediaQuery } from 'react-responsive';
 import { Typography } from '@mui/material';
 
+// Music files
+import Wulomei_akrowa from '../assets/music/Wulomei - Akrowa (Ghanaian Folk Traditional Song).mp4';
+import Wulomei_Meridian from '../assets/music/Wulomei - Meridian (Ghanaian Folk Traditional Song).mp4';
+import Wulomei_Tswa from '../assets/music/Wulomei - Tswa Omanye Aba.mp4';
+
 const albumData = [
-    { id: 1, title: "Album 1", image: "https://via.placeholder.com/300x200.png?text=Album+1" },
-    { id: 2, title: "Album 2", image: "https://via.placeholder.com/300x200.png?text=Album+2" },
-    { id: 3, title: "Album 3", image: "https://via.placeholder.com/300x200.png?text=Album+3" },
-    { id: 4, title: "Album 4", image: "https://via.placeholder.com/300x200.png?text=Album+4" },
-    { id: 5, title: "Album 5", image: "https://via.placeholder.com/300x200.png?text=Album+5" },
+    { id: 1, title: "Naa Amanua Wulemei - Akrowa", video: Wulomei_akrowa },
+    { id: 2, title: "Wulomei - Tswa Omanye Aba", video: Wulomei_Tswa },
+    { id: 3, title: "Wulomei - Meridian", video: Wulomei_Meridian },
 ];
 
 const Carousel = () => {
-    // Responsive media queries
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const isTablet = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1024px)' });
-    const isDesktop = useMediaQuery({ query: '(min-width: 1025px)' });
+
+    const [hoveredVideo, setHoveredVideo] = useState(null);
 
     return (
         <div style={{ width: '70%', margin: '0 auto', position: 'relative' }}>
@@ -28,12 +31,11 @@ const Carousel = () => {
                 navigation={{
                     prevEl: '.swiper-button-prev',
                     nextEl: '.swiper-button-next',
-                    hide: true, // Hides the default arrows
                 }}
-                slidesPerView={isMobile ? 1 : isTablet ? 2 : 3} // Adjust slides per view based on screen size
-                spaceBetween={isMobile ? 10 : 15} // Adjust space between slides
-                loop={true} style={{ padding: '20px 0', }}
-
+                slidesPerView={isMobile ? 1 : isTablet ? 2 : 3}
+                spaceBetween={isMobile ? 10 : 15}
+                loop={true}
+                style={{ padding: '20px 0' }}
             >
                 {albumData.map((album) => (
                     <SwiperSlide key={album.id}>
@@ -43,19 +45,52 @@ const Carousel = () => {
                                 textAlign: 'center',
                                 background: '#f8f8f8',
                                 borderRadius: '8px',
+                                position: 'relative',
+                                overflow: 'hidden',
                             }}
+                            onMouseEnter={() => setHoveredVideo(album.id)}
+                            onMouseLeave={() => setHoveredVideo(null)}
                         >
-                            <img
-                                src={album.image}
-                                alt={album.title}
-                                className="album-image"
+                            <video
+                                src={album.video}
+                                className="album-video"
+                                controls
                                 style={{
                                     maxWidth: "100%",
                                     height: "100%",
                                     objectFit: 'cover',
                                     borderRadius: '8px',
                                 }}
-                            />
+                            >
+                                Your browser does not support the video element.
+                            </video>
+                            {hoveredVideo === album.id && (
+                                <div
+                                    style={{
+                                        position: 'absolute',
+                                        top: '50%',
+                                        left: '50%',
+                                        transform: 'translate(-50%, -50%)',
+                                        background: 'rgba(0, 0, 0, 0.5)',
+                                        color: 'white',
+                                        border: 'none',
+                                        borderRadius: '50%',
+                                        padding: '10px',
+                                        cursor: 'pointer',
+                                    }}
+                                >
+                                    <a
+                                        href={album.video}
+                                        download
+                                        style={{
+                                            color: 'white',
+                                            textDecoration: 'none',
+                                        }}
+                                    >
+                                        Download
+                                    </a>
+                                </div>
+                            )}
                             <div
                                 className="album-name"
                                 style={{
@@ -64,25 +99,7 @@ const Carousel = () => {
                                     fontWeight: 'bold',
                                 }}
                             >
-
-                                <Typography>
-                                    Naa Amanua Worlomei
-                                </Typography>
-
-                            </div>
-
-                            <div
-                                className="album-title"
-                                style={{
-                                    marginTop: '10px',
-                                    fontSize: isMobile ? '14px' : '16px',
-                                    fontWeight: 'bold',
-                                }}
-                            >
-
-                                <Typography>
-                                    {album.title}
-                                </Typography>
+                                <Typography>{album.title}</Typography>
                             </div>
                         </div>
                     </SwiperSlide>

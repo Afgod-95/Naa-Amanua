@@ -55,25 +55,26 @@ const DonateToday = ({ open, onClose }) => {
                         overflow: 'hidden', // Prevent content from overflowing
                     }}
                 >
-                    <Box
-                        sx={{
+                    <motion.div
+                        style={{
                             display: 'flex',
                             flexDirection: 'column',
                             gap: 3,
                             justifyContent: 'center',
                             alignItems: 'center',
                             overflowY: 'auto', // Add scrolling only if content overflows
-                            maxHeight: '60vh', // Limit the height to avoid overflow on smaller screens
+                            maxHeight: '50vh', // Limit the height to avoid overflow on smaller screens
                             width: '100%',
                         }}
                     >
                         {/* Content Boxes */}
-                        <Box
-                            sx={{
+                        <motion.div
+                            
+                            style={{
                                 display: 'flex',
                                 flexDirection: isLargeScreen ? 'row' : 'column',
                                 gap: 2,
-                                paddingTop: isSmallScreen ? '17rem' : '',
+                                marginTop: isSmallScreen ? '30rem' : '',
                                 flexWrap: 'wrap',
                                 scrollBehavior: 'smooth',
                                 justifyContent: 'center',
@@ -126,7 +127,7 @@ const DonateToday = ({ open, onClose }) => {
                                         minWidth: '250px',
                                     }}
                                 >
-                                    <Typography variant="h6" sx={{ marginBottom: '10px', textAlign: 'left'  }}>
+                                    <Typography variant="h6" sx={{ marginBottom: '10px', textAlign: 'left' }}>
                                         {box.title}
                                     </Typography>
                                     <Typography variant="body1" sx={{ color: 'text.secondary', textAlign: 'left' }}>
@@ -134,8 +135,8 @@ const DonateToday = ({ open, onClose }) => {
                                     </Typography>
                                 </Box>
                             ))}
-                        </Box>
-                    </Box>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Buttons */}
                     <Box
@@ -145,23 +146,27 @@ const DonateToday = ({ open, onClose }) => {
                             alignItems: 'center',
                             gap: 2,
                             flexWrap: 'wrap',
+                            paddingLeft: '20px',
+                            paddingRight: '20px',
+                          
                             width: '100%',
                         }}
                     >
-                        
+
                         <div
                             style={{
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 gap: '1rem',
-                                
-                                width: '100%',
+                              
+                                margin: '0% auto',
+                                width: '80%',
                             }}
                         >
                             <img src="https://i0.wp.com/wundef.com/wp-content/uploads/2024/08/img_9045-1.jpg?fit=760%2C460&ssl=1" alt=""
                                 style={{
-                                    maxWidth: '200px',
+                                    maxWidth: '150px',
                                     height: '100px',
                                     borderRadius: '20px',
                                     objectFit: 'cover',
@@ -170,11 +175,11 @@ const DonateToday = ({ open, onClose }) => {
                             />
                             <div>
                                 <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-                                   Phone
+                                    Phone
                                 </Typography>
 
                                 <Typography variant="body1" sx={{ color: '#000', fontWeight: 'bold', fontSize: '1rem' }}>
-                                  <a href="tel:0244038547" style={{color: '#000'}}>+233244038547</a>
+                                    <a href="tel:0244038547" style={{ color: '#000' }}>+233244038547</a>
                                 </Typography>
 
                                 <Typography variant="body1" sx={{ color: 'text.secondary' }}>

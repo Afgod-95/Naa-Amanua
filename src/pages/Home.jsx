@@ -10,7 +10,7 @@ import Footer from '../components/Footer.jsx';
 import Foundation from '../components/home/Foundation.jsx';
 import { Typography } from '@mui/material';  // Importing Typography component
 import { useMediaQuery } from 'react-responsive';
-import { useNavigate } from 'react-router-dom';
+
 
 const Home = () => {
 
@@ -23,7 +23,7 @@ const Home = () => {
     //laptop media query
     const isLaptop = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1440px)' });
 
-    const navigate = useNavigate();
+  
 
 
     return (
@@ -101,6 +101,8 @@ const Home = () => {
                                     display: "flex",
                                     gap: isMobile && "1rem",
                                     flexDirection: isMobile ? "row" : "column",
+                                    fontFamily: "sans-serif",
+                                    fontWeight: "bold",
                                 }}
                             >
                                 Naa

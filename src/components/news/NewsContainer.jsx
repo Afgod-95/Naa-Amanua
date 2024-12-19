@@ -51,7 +51,7 @@ const NewsContainer = ({ title, img, date, desc1, desc2, source }) => {
                         {title}
                     </Typography>
                     <Typography variant="body1" sx={{ textAlign: 'center', paddingBottom: '1rem', color: "#5F6364" }}>
-                        {date} | 2mins read
+                       Posted: {date} | 2mins read
                     </Typography>
                 </motion.div>
 

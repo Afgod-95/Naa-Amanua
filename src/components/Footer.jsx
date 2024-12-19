@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaInstagram } from "react-icons/fa";
@@ -6,7 +6,8 @@ import { useMediaQuery } from 'react-responsive';
 import { FaSquareFacebook } from "react-icons/fa6";
 import { IoLogoYoutube } from "react-icons/io";
 import Logo from "../assets/PNG/NAA_AMANUA.png";
-import { Typography } from '@mui/material'; // Import Typography from MUI
+import { Typography } from '@mui/material';
+import DonateToday from './modal/DonateToday';
 
 
 
@@ -38,6 +39,10 @@ const Footer = () => {
     const isSmallMob = useMediaQuery({ query: '(max-width: 568px)' }); // smaller mobile devices
     const isTablet = useMediaQuery({ query: '(min-width: 769px) and (max-width: 1024px)' });
 
+    const [modalOpen, setModalOpen] = useState(false);
+    const handleOpen = () => setModalOpen(true);
+    const handleClose = () => setModalOpen(false);
+
     return (
         <>
 
@@ -57,9 +62,9 @@ const Footer = () => {
                         <Link to="">
                             <Typography variant="h6" style={{ cursor: "pointer", color: "#000", fontSize: "12px" }}>Privacy Policy</Typography>
                         </Link>
-                        <Link to="">
+                        <div style={{cursor: "pointer" }} onClick={handleOpen}>
                             <Typography variant="h6" style={{ cursor: "pointer", color: "#000", fontSize: "12px" }}>Contact</Typography>
-                        </Link>
+                        </div>
                     </div>
 
 
@@ -87,7 +92,7 @@ const Footer = () => {
                             <Link to="https://www.instagram.com/naaamanuawulomei?igsh=MXh1dWtsZjBjNHB4aw==" target='blank' className='info'>
                                 <FaInstagram size={isMobile ? 24 : 30} />
                             </Link>
-                            <Link  to="https://www.facebook.com/share/195MwiuQPb/?mibextid=LQQJ4d" target='blank' className='info'>
+                            <Link to="https://www.facebook.com/share/195MwiuQPb/?mibextid=LQQJ4d" target='blank' className='info'>
                                 <FaSquareFacebook size={isMobile ? 24 : 30} />
                             </Link>
                             <Link to="https://www.youtube.com/@MaryNaaAmanuaDodoo-Wulomei" target='blank' className='info'>
@@ -167,9 +172,9 @@ const Footer = () => {
                                 <Link to="">
                                     <Typography variant="h6" style={{ cursor: "pointer", color: "#000", fontSize: "12px" }}>Privacy Policy</Typography>
                                 </Link>
-                                <Link to="">
-                                    <Typography variant="h6" style={{ cursor: "pointer", color: "#000", fontSize: "12px" }}>Contact</Typography>
-                                </Link>
+                                <div onClick={handleOpen} style={{cursor: "pointer" }}>
+                                    <Typography variant="h6" style={{  color: "#000", fontSize: "12px" }}>Contact</Typography>
+                                </div>
                             </div>
 
                             {/* Copyright section with animation */}
@@ -199,7 +204,7 @@ const Footer = () => {
                 </motion.div>
 
             )}
-
+            {modalOpen && <DonateToday open={modalOpen} onClose={handleClose} />}
         </>
     );
 }
