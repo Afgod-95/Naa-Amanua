@@ -64,7 +64,9 @@ const Carousel = () => {
                             >
                                 Your browser does not support the video element.
                             </video>
-                            {hoveredVideo === album.id && (
+                            {/* 
+                            
+                                {hoveredVideo === album.id && (
                                 <div
                                     style={{
                                         position: 'absolute',
@@ -91,6 +93,10 @@ const Carousel = () => {
                                     </a>
                                 </div>
                             )}
+                            
+                            
+                            
+                            */}
                             <div
                                 className="album-name"
                                 style={{
