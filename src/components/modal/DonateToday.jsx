@@ -63,7 +63,7 @@ const DonateToday = ({ open, onClose }) => {
                             justifyContent: 'center',
                             alignItems: 'center',
                             overflowY: 'auto', // Add scrolling only if content overflows
-                            maxHeight: '75vh', // Limit the height to avoid overflow on smaller screens
+                            maxHeight: '60vh', // Limit the height to avoid overflow on smaller screens
                             width: '100%',
                         }}
                     >
@@ -73,7 +73,7 @@ const DonateToday = ({ open, onClose }) => {
                                 display: 'flex',
                                 flexDirection: isLargeScreen ? 'row' : 'column',
                                 gap: 2,
-                                paddingTop: isSmallScreen ? '8rem' : '',
+                                paddingTop: isSmallScreen ? '17rem' : '',
                                 flexWrap: 'wrap',
                                 scrollBehavior: 'smooth',
                                 justifyContent: 'center',
@@ -102,11 +102,11 @@ const DonateToday = ({ open, onClose }) => {
                                     title: "Contact Us",
                                     content: (
                                         <>
-                                            Got a project or questions on your own mind?
+                                            Got a project or questions on your mind?
                                             <br />
                                             <a
                                                 href={`mailto:${email}`}
-                                                style={{ color: '#000', textDecoration: 'none' }}
+                                                style={{ color: '#000', textDecoration: 'none', textTransform: 'lowercase' }}
                                             >
                                                 {email}
                                             </a>
@@ -129,7 +129,7 @@ const DonateToday = ({ open, onClose }) => {
                                     <Typography variant="h6" sx={{ marginBottom: '10px' }}>
                                         {box.title}
                                     </Typography>
-                                    <Typography variant="body1" sx={{ color: 'text.secondary' }}>
+                                    <Typography variant="body1" sx={{ color: 'text.secondary', textAlign: 'left' }}>
                                         {box.content}
                                     </Typography>
                                 </Box>
@@ -148,8 +148,45 @@ const DonateToday = ({ open, onClose }) => {
                             width: '100%',
                         }}
                     >
+                        
+                        <div
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                gap: '1rem',
+                                
+                                width: '100%',
+                            }}
+                        >
+                            <img src="https://i0.wp.com/wundef.com/wp-content/uploads/2024/08/img_9045-1.jpg?fit=760%2C460&ssl=1" alt=""
+                                style={{
+                                    maxWidth: '200px',
+                                    height: '100px',
+                                    borderRadius: '20px',
+                                    objectFit: 'cover',
+                                    objectPosition: 'center',
+                                }}
+                            />
+                            <div>
+                                <Typography variant="body1" sx={{ color: 'text.secondary' }}>
+                                   Phone
+                                </Typography>
+
+                                <Typography variant="body1" sx={{ color: '#000', fontWeight: 'bold', fontSize: '1rem' }}>
+                                  +233244038547
+                                </Typography>
+
+                                <Typography variant="body1" sx={{ color: 'text.secondary' }}>
+                                    Name
+                                </Typography>
+                                <Typography variant="body1" sx={{ color: '#000', fontWeight: 'bold', fontSize: '1rem' }}>
+                                    Naa Amanua Dodoo
+                                </Typography>
+                            </div>
+                        </div>
+
                         <OutlinedButton text="Close" onClick={onClose} />
-                        <GradientButton text="Donate to Naa Amanua Foundation" />
                     </Box>
                 </Box>
             </motion.div>
