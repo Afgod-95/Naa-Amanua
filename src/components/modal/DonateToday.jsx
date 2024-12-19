@@ -126,7 +126,7 @@ const DonateToday = ({ open, onClose }) => {
                                         minWidth: '250px',
                                     }}
                                 >
-                                    <Typography variant="h6" sx={{ marginBottom: '10px' }}>
+                                    <Typography variant="h6" sx={{ marginBottom: '10px', textAlign: 'left'  }}>
                                         {box.title}
                                     </Typography>
                                     <Typography variant="body1" sx={{ color: 'text.secondary', textAlign: 'left' }}>
@@ -174,7 +174,7 @@ const DonateToday = ({ open, onClose }) => {
                                 </Typography>
 
                                 <Typography variant="body1" sx={{ color: '#000', fontWeight: 'bold', fontSize: '1rem' }}>
-                                  +233244038547
+                                  <a href="tel:0244038547" style={{color: '#000'}}>+233244038547</a>
                                 </Typography>
 
                                 <Typography variant="body1" sx={{ color: 'text.secondary' }}>
