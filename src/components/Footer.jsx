@@ -43,6 +43,10 @@ const Footer = () => {
     const handleOpen = () => setModalOpen(true);
     const handleClose = () => setModalOpen(false);
 
+    //getting date function to update copyright
+    const currentYear = new Date().getFullYear();
+    console.log(currentYear);
+
     return (
         <>
 
@@ -106,7 +110,7 @@ const Footer = () => {
                     {/* Copyright section with animation */}
                     <motion.div variants={variants.copyright}>
                         <Typography variant="body2" style={{ color: "#000", textAlign: "center", fontSize: isMobile ? "14px" : "15px" }}>
-                            © 2025 Naa Amanua. All rights reserved.
+                            © {currentYear} Naa Amanua. All rights reserved.
                         </Typography>
                     </motion.div>
 
@@ -180,7 +184,7 @@ const Footer = () => {
                             {/* Copyright section with animation */}
                             <motion.div variants={variants.copyright}>
                                 <Typography variant="body2" style={{ color: "#000", textAlign: "center", fontSize: isMobile ? "11px" : "12px" }}>
-                                    © 2025 Naa Amanua. All rights reserved.
+                                    © {currentYear} Naa Amanua. All rights reserved.
                                 </Typography>
                             </motion.div>
                         </motion.div>
